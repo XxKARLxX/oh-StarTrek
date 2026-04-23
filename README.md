@@ -1,4 +1,4 @@
-# 🖖 oh-StarTrek
+# 🖖 oh-StarTrek*（Preview）*
 
 > *"每一项划去的待办，都是一次驶向远方的跃迁。"* ✨
 
