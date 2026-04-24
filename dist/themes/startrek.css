@@ -1149,49 +1149,9 @@ body.kef-round-shell #headbar .orca-button {
 
 /* =============================================
    字体配置
+   字体全部通过 Orca 设置机制控制，CSS 不做强制覆盖
+   JS 在加载主题时将编辑器/UI 字体默认设为衬线体
    ============================================= */
-:root {
-    --milk-font-serif:
-        "Noto Serif", "Noto Serif SC", "Source Han Serif SC", Georgia, "STSong",
-        "SimSun", serif;
-    --milk-font-mono:
-        "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
-
-    /* Orca 字体变量（UI 区域生效） */
-    --orca-fontfamily-ui: var(--milk-font-serif);
-    --orca-fontfamily-editor: var(--milk-font-serif);
-    --orca-fontfamily-code: var(--milk-font-mono);
-}
-
-/* =============================================
-   编辑器字体强制覆盖
-   编辑器内容区域使用内联样式，需要 CSS 选择器强制生效
-   ============================================= */
-
-/* 编辑器主区域 — 衬线体 */
-.orca-block-editor,
-.orca-block-editor .ProseMirror,
-.orca-block-editor-main,
-.orca-repr,
-.orca-repr-heading,
-.orca-repr-paragraph,
-.orca-repr-text,
-.orca-editor-content {
-    font-family: var(--milk-font-serif) !important;
-}
-
-/* 代码块 — 等宽体 */
-.orca-block-editor pre,
-.orca-block-editor code,
-.orca-code-wrapper,
-.orca-repr-code {
-    font-family: var(--milk-font-mono) !important;
-}
-
-/* 行内代码 */
-.orca-block-editor code:not(pre code) {
-    font-family: var(--milk-font-mono) !important;
-}
 
 /* =============================================
    字体选择菜单预览
