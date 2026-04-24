@@ -1153,6 +1153,19 @@ body.kef-round-shell #headbar .orca-button {
    JS 在加载主题时将编辑器/UI 字体默认设为衬线体
    ============================================= */
 
+/* --------------------------------------------
+   查询字体统一化
+   由插件设置「查询字体统一化」开关控制
+   JS 在 <html> 上添加 startrek-query-font-unified class 触发
+   仅作用于 .orca-query-results 内的标题块，不影响其他区域
+   适用模式：卡片 / 表格 / 列表
+   ============================================= */
+.startrek-query-font-unified .orca-query-results .orca-repr-heading .orca-repr-main-content {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
 /* =============================================
    字体选择菜单预览
    下拉菜单中每个字体选项用对应字体渲染

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.0] - 2026-04-24
+
+### Added
+
+- **查询字体统一化** — 新增插件设置项，启用后查询结果（卡片/表格/列表）中的标题块字体与文本块保持一致
+  - 开启时：查询结果中 heading 的 font-size、font-weight、line-height 继承自父容器，与 text 视觉一致
+  - 关闭时：移除 CSS class，恢复 Orca 原生 heading 样式
+  - 关→开：若主题已激活，立即应用
+  - 仅作用于 `.orca-query-results` 内，不影响其他区域的 heading
+- 新增 `vite.config.publish.ts` — 支持构建到发布仓库（`npm run build:publish`）
+
 ## [2.1.0] - 2026-04-24
 
 ### Added
