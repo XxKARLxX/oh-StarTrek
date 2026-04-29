@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.2] - 2026-04-24
+
+### Fixed
+
+- 修复查询块展开时卡顿：隐藏面板（`orca-hideable-hidden`）的星空 canvas 不再渲染，避免触发 `content-visibility` 强制布局
+
+## [2.2.1] - 2026-04-24
+
+### Changed
+
+- 跃迁星星生成范围从 minSide 的 20%~40% 调整为 5%~40%，填充中心空洞
+- 星星密度从 1/8000 调整为 1/12000，降低视觉密度
+
 ## [2.2.0] - 2026-04-24
 
 ### Added
