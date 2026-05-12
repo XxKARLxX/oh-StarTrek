@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2026-05-12
+
+### Changed
+
+- **[性能] 星空渲染优化**：正常状态关闭 `shadowBlur` 高斯模糊，改用双圈伪光晕模拟柔光效果；跃迁期间才启用 `shadowBlur`；低于 30fps 时自适应全面关闭
+- **[性能] 合并 MutationObserver**：task observer 和 bigTask observer 合并为一个，减少 DOM 监听回调开销
+- **[性能] elementFromPoint 节流**：16ms 节流限制 `elementFromPoint` 调用频率，减少 reflow
+- **[重构] draw() 方法拆分**：提取为 `drawNormal()`/`drawRamp()`/`drawWarp()`/`drawDecay()` 四个独立方法，降低圈复杂度
+- **[重构] 插件状态封装**：模块级变量封装为 `PluginState` 接口 + `state` 对象
+
+### Fixed
+
+- **[P1] scopeLine MutationObserver 内存泄漏**：`startScopeLineDynamics()` 创建的 Observer 在 `unload()` 中未断开
+- **[P1] focusin/focusout 监听器残留**：插件卸载后事件监听器仍在 `document` 上触发
+- **[P1] 字体设置不恢复**：开启推荐字体后关闭主题或卸载插件，用户原始字体设置被永久修改
+- **[P2] hexToRgb 解析失败静默**：调试模式下输出 `console.warn` 便于排查配色错误
+- **[P2] initColors 异常未处理**：`getComputedStyle` 在特殊时机可能抛异常
+- **[P2] 跃迁后星星缩回原位**：跃迁期间持续同步 `ox/oy` 锚点，避免衰减期缓动拉回旧位置
+- **[类型] window as any**：`Window` 接口扩展 `__startrek_cleanup`，`delete` 改用 `Reflect.deleteProperty`
+- **[类型] e.target as HTMLElement**：改用 `instanceof` 类型守卫
+- **[类型] orca.d.ts 双重 declare**：移除冗余的 `declare` 关键字
+- **[类型] Window.Valtio 类型为 any**：定义最小必要类型签名
+
+### Added
+
+- 主题检测选择器提取为 `THEME_CSS_SELECTOR` 常量，注释说明为何保留 `*=` 包含匹配
+- 颜色 fallback 值提取为 `SLATE_FALLBACK`/`ORANGE_FALLBACK` 命名常量
+- 青色星星比例提取为 `CYAN_RATIO` 命名常量
+- 流光公式参数提取为 `INPUT_SPREAD_*`/`SCOPE_SPREAD_*` 命名常量
+- `vite.config.ts` 支持环境变量 `ORCA_PLUGIN_DIR` 覆盖默认输出路径
+- README 新增 Browser Compatibility 章节，标注 CSS 现代特性最低 Chromium 版本要求
+- 代码审计报告（`audit/audit-report.md`）和复核报告（`audit/review-report.md`）
+
 ## [2.2.2] - 2026-04-24
 
 ### Fixed
