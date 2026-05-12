@@ -1,64 +1,78 @@
-var bt = Object.defineProperty;
-var wt = (c, e, a) => e in c ? bt(c, e, { enumerable: !0, configurable: !0, writable: !0, value: a }) : c[e] = a;
-var P = (c, e, a) => wt(c, typeof e != "symbol" ? e + "" : e, a);
-let w = !1;
-const A = (...c) => {
-  w && console.log("[oh-StarTrek]", ...c);
+var Me = Object.defineProperty;
+var Se = (l, e, t) => e in l ? Me(l, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : l[e] = t;
+var E = (l, e, t) => Se(l, typeof e != "symbol" ? e + "" : e, t);
+let F = !1;
+const P = (...l) => {
+  F && console.log("[oh-StarTrek]", ...l);
 };
-function gt(c) {
-  w = c, c && A("调试模式已开启");
+function ve(l) {
+  F = l, l && P("调试模式已开启");
 }
-const lt = (c) => {
-  const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(c);
+const Pe = "#12c2e9", Ae = "#e98812", he = (l) => {
+  const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(l);
   return e ? {
     r: parseInt(e[1], 16),
     g: parseInt(e[2], 16),
     b: parseInt(e[3], 16)
-  } : { r: 18, g: 194, b: 233 };
+  } : (F && console.warn("[oh-StarTrek] hexToRgb 解析失败:", l, "，使用 fallback"), { r: 18, g: 194, b: 233 });
 };
-let Y = { r: 18, g: 194, b: 233 }, U = { r: 233, g: 136, b: 18 };
-function xt() {
-  const c = getComputedStyle(document.documentElement), e = c.getPropertyValue("--milk-slate").trim() || "#12c2e9", a = c.getPropertyValue("--milk-orange").trim() || "#e98812";
-  Y = lt(e), U = lt(a), A(`initColors: cyan=rgb(${Y.r},${Y.g},${Y.b}), orange=rgb(${U.r},${U.g},${U.b})`);
+let B = { r: 18, g: 194, b: 233 }, W = { r: 233, g: 136, b: 18 };
+function Fe() {
+  try {
+    const l = getComputedStyle(document.documentElement), e = l.getPropertyValue("--milk-slate").trim() || Pe, t = l.getPropertyValue("--milk-orange").trim() || Ae;
+    B = he(e), W = he(t), P(`initColors: cyan=rgb(${B.r},${B.g},${B.b}), orange=rgb(${W.r},${W.g},${W.b})`);
+  } catch {
+    P("initColors failed, using defaults");
+  }
 }
-const ht = () => Math.random() < 0.6 ? Y : U, St = 400, dt = 1600, Mt = 500, H = 4, st = 36, q = 1, at = 2, ft = 0.07, B = 250, vt = 1 / 8e3, $t = 30, Pt = 300, ut = 8, E = 0.1, At = 0.15, pt = 0.1;
-class kt {
+const $e = 0.6, ue = () => Math.random() < $e ? B : W, Ee = 400, de = 1600, xe = 500, k = 4, J = 36, O = 1, ee = 2, fe = 0.07, D = 250, Te = 1 / 12e3, Ce = 30, Le = 300, pe = 8, L = 0.1, _e = 0.15, me = 0.1, Re = 30, N = {
+  full: { maxFps: 120, densityMultiplier: 1, label: "满功率" },
+  cruise: { maxFps: 60, densityMultiplier: 0.8, label: "巡航功率" },
+  standby: { maxFps: 30, densityMultiplier: 0.6, label: "待机功率" }
+};
+let Y = "full";
+function Ie(l) {
+  l !== Y && (Y = l, P(`引擎功率切换: ${N[l].label} (fps上限=${N[l].maxFps}, 密度×${N[l].densityMultiplier})`), ne = !0);
+}
+let ne = !1;
+const ke = 16;
+class De {
   // 巡航时长（大任务可延长）
   constructor(e) {
-    P(this, "canvas");
-    P(this, "ctx", null);
-    P(this, "hideable");
-    P(this, "stars", []);
-    P(this, "canvasW", 0);
-    P(this, "canvasH", 0);
-    P(this, "scrollY", 0);
-    P(this, "prevScrollY", 0);
-    P(this, "frameCount", 0);
+    E(this, "canvas");
+    E(this, "ctx", null);
+    E(this, "hideable");
+    E(this, "stars", []);
+    E(this, "canvasW", 0);
+    E(this, "canvasH", 0);
+    E(this, "scrollY", 0);
+    E(this, "prevScrollY", 0);
+    E(this, "frameCount", 0);
     // FPS 跟踪
-    P(this, "fps", 0);
-    P(this, "fpsFrameCount", 0);
-    P(this, "fpsLastTime", 0);
+    E(this, "fps", 0);
+    E(this, "fpsFrameCount", 0);
+    E(this, "fpsLastTime", 0);
     // 跃迁状态
-    P(this, "warpPhase", "normal");
-    P(this, "phaseStart", 0);
-    P(this, "cruiseDuration", dt);
+    E(this, "warpPhase", "normal");
+    E(this, "phaseStart", 0);
+    E(this, "cruiseDuration", de);
     this.hideable = e;
-    const a = e.querySelectorAll(".orca-startrek-starfield");
-    a.length > 0 && (A(`constructor: 清除 ${a.length} 个残留 canvas`), a.forEach((s) => s.remove())), this.canvas = document.createElement("canvas"), this.canvas.className = "orca-startrek-starfield", this.canvas.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;", e.appendChild(this.canvas), this.resize();
+    const t = e.querySelectorAll(".orca-startrek-starfield");
+    t.length > 0 && (P(`constructor: 清除 ${t.length} 个残留 canvas`), t.forEach((o) => o.remove())), this.canvas = document.createElement("canvas"), this.canvas.className = "orca-startrek-starfield", this.canvas.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;", e.appendChild(this.canvas), this.resize();
   }
   /** 原地覆写：将星星重置为从圆边缘出发（跃迁回收用，零 GC） */
   resetAsCenterStar(e) {
-    const a = this.canvasW / 2, s = this.canvasH / 2, r = Math.min(this.canvasW, this.canvasH) * (0.2 + Math.random() * 0.2), u = Math.random() * Math.PI * 2, p = a + Math.cos(u) * r, g = s + Math.sin(u) * r, C = Math.atan2(g - s, p - a), F = Math.sqrt(a * a + s * s), I = Math.min(1, r / F), o = ht();
-    e.ox = p, e.oy = g, e.x = p, e.y = g, e.size = 0.3 + Math.random() * 0.8, e.baseAlpha = 0.15 + Math.random() * 0.25, e.twinkleSpeed = 0.5 + Math.random() * 2, e.twinkleOffset = Math.random() * Math.PI * 2, e.warpAngle = C, e.warpSpeed = H + (st - H) * I, e.warpBornInWarp = !0, e.warpStreak = Math.random() < 0.5, e.colorR = o.r, e.colorG = o.g, e.colorB = o.b;
+    const t = this.canvasW / 2, o = this.canvasH / 2, n = Math.min(this.canvasW, this.canvasH) * (0.05 + Math.random() * 0.35), h = Math.random() * Math.PI * 2, c = t + Math.cos(h) * n, f = o + Math.sin(h) * n, u = Math.atan2(f - o, c - t), m = Math.sqrt(t * t + o * o), b = Math.min(1, n / m), a = ue();
+    e.ox = c, e.oy = f, e.x = c, e.y = f, e.size = 0.3 + Math.random() * 0.8, e.baseAlpha = 0.15 + Math.random() * 0.25, e.twinkleSpeed = 0.5 + Math.random() * 2, e.twinkleOffset = Math.random() * Math.PI * 2, e.warpAngle = u, e.warpSpeed = k + (J - k) * b, e.warpBornInWarp = !0, e.warpStreak = Math.random() < 0.5, e.colorR = a.r, e.colorG = a.g, e.colorB = a.b;
   }
   /** 创建一颗随机位置的常驻星星 */
-  makeStar(e, a) {
-    const s = Math.random() * this.canvasW, n = e + Math.random() * (a - e), r = ht();
+  makeStar(e, t) {
+    const o = Math.random() * this.canvasW, i = e + Math.random() * (t - e), n = ue();
     return {
-      ox: s,
-      oy: n,
-      x: s,
-      y: n,
+      ox: o,
+      oy: i,
+      x: o,
+      y: i,
       size: 0.3 + Math.random() * 0.8,
       baseAlpha: 0.15 + Math.random() * 0.25,
       twinkleSpeed: 0.5 + Math.random() * 2,
@@ -67,55 +81,56 @@ class kt {
       warpSpeed: 0,
       warpBornInWarp: !1,
       warpStreak: !1,
-      colorR: r.r,
-      colorG: r.g,
-      colorB: r.b
+      colorR: n.r,
+      colorG: n.g,
+      colorB: n.b
     };
   }
-  /** 初始化星点 — 在画布 + 出血区范围内均匀分布 */
+  /** 初始化星点 — 在画布 + 出血区范围内均匀分布
+   *  密度倍率由引擎功率档位控制 */
   generateStars() {
     this.stars = [];
-    const e = this.canvasH * pt, a = this.canvasH + e * 2, s = this.canvasW * a, n = Math.max(
-      $t,
-      Math.min(Pt, Math.round(s * vt))
+    const e = this.canvasH * me, t = this.canvasH + e * 2, o = this.canvasW * t, i = N[Y].densityMultiplier, n = Math.max(
+      Ce,
+      Math.min(Le, Math.round(o * Te * i))
     );
-    for (let r = 0; r < n; r++)
+    for (let h = 0; h < n; h++)
       this.stars.push(this.makeStar(-e, this.canvasH + e));
   }
   /** 触发跃迁：进入加速期；warp 期间可重置巡航计时器
    *  @param cruiseDuration 巡航时长（ms），默认 CRUISE_DURATION
    */
-  triggerWarp(e = dt) {
-    if (A(`triggerWarp: phase=${this.warpPhase}, stars=${this.stars.length}, cruise=${e}ms`), this.warpPhase === "ramp" || this.warpPhase === "decay") return;
+  triggerWarp(e = de) {
+    if (P(`triggerWarp: phase=${this.warpPhase}, stars=${this.stars.length}, cruise=${e}ms`), this.warpPhase === "ramp" || this.warpPhase === "decay") return;
     if (this.warpPhase === "warp") {
-      this.phaseStart = performance.now(), A("triggerWarp: warp重置");
+      this.phaseStart = performance.now(), P("triggerWarp: warp重置");
       return;
     }
     this.warpPhase = "ramp", this.phaseStart = performance.now(), this.cruiseDuration = e;
-    const a = this.canvasW / 2, s = this.canvasH / 2, n = Math.sqrt(a * a + s * s);
-    for (const r of this.stars) {
-      const u = r.x - a, p = r.y - s, g = Math.sqrt(u * u + p * p);
-      r.warpAngle = Math.atan2(p, u);
-      const C = Math.min(1, g / n);
-      r.warpSpeed = H + (st - H) * C, r.warpBornInWarp = !1, r.warpStreak = Math.random() < 0.5;
+    const t = this.canvasW / 2, o = this.canvasH / 2, i = Math.sqrt(t * t + o * o);
+    for (const n of this.stars) {
+      const h = n.x - t, c = n.y - o, f = Math.sqrt(h * h + c * c);
+      n.warpAngle = Math.atan2(c, h);
+      const u = Math.min(1, f / i);
+      n.warpSpeed = k + (J - k) * u, n.warpBornInWarp = !1, n.warpStreak = Math.random() < 0.5;
     }
-    if (w) {
-      const r = this.stars.slice(0, 5).map((u) => `(${u.x.toFixed(0)},${u.y.toFixed(0)})`).join(" ");
-      A(`triggerWarp: 星星样本 = ${r}`);
+    if (F) {
+      const n = this.stars.slice(0, 5).map((h) => `(${h.x.toFixed(0)},${h.y.toFixed(0)})`).join(" ");
+      P(`triggerWarp: 星星样本 = ${n}`);
     }
-    A(`triggerWarp: 进入ramp, 星星数=${this.stars.length}`);
+    P(`triggerWarp: 进入ramp, 星星数=${this.stars.length}`);
   }
   /** 调整 canvas 尺寸（容差 2px，防止 1px 抖动反复重建星星） */
   resize() {
-    const e = this.hideable.clientWidth, a = this.hideable.clientHeight;
-    if (e === 0 || a === 0) return;
-    const s = Math.abs(e - this.canvasW), n = Math.abs(a - this.canvasH);
-    if ((s >= 2 || n >= 2) && (A(`resize: ${this.canvasW}x${this.canvasH} → ${e}x${a} (dw=${s}, dh=${n})`), this.canvasW = e, this.canvasH = a, this.canvas.width = e, this.canvas.height = a, this.ctx = this.canvas.getContext("2d"), this.generateStars(), this.warpPhase !== "normal")) {
-      A(`resize: 跃迁中(${this.warpPhase})，重算跃迁方向`);
-      const r = e / 2, u = a / 2;
-      for (const p of this.stars) {
-        const g = p.x - r, C = p.y - u;
-        p.warpAngle = Math.atan2(C, g), p.warpSpeed = H + Math.random() * (st - H), p.warpBornInWarp = !1;
+    const e = this.hideable.clientWidth, t = this.hideable.clientHeight;
+    if (e === 0 || t === 0) return;
+    const o = Math.abs(e - this.canvasW), i = Math.abs(t - this.canvasH);
+    if ((o >= 2 || i >= 2) && (P(`resize: ${this.canvasW}x${this.canvasH} → ${e}x${t} (dw=${o}, dh=${i})`), this.canvasW = e, this.canvasH = t, this.canvas.width = e, this.canvas.height = t, this.ctx = this.canvas.getContext("2d"), this.generateStars(), this.warpPhase !== "normal")) {
+      P(`resize: 跃迁中(${this.warpPhase})，重算跃迁方向`);
+      const n = e / 2, h = t / 2;
+      for (const c of this.stars) {
+        const f = c.x - n, u = c.y - h;
+        c.warpAngle = Math.atan2(u, f), c.warpSpeed = k + Math.random() * (J - k), c.warpBornInWarp = !1;
       }
     }
   }
@@ -125,209 +140,226 @@ class kt {
     this.scrollY = e.scrollTop;
   }
   /** 画一个带拖尾的星星 */
-  drawStreakStar(e, a, s, n, r, u, p, g, C) {
+  drawStreakStar(e, t, o, i, n, h, c, f, u) {
     if (this.ctx) {
-      if (n > 0.5) {
-        const F = e - Math.cos(s) * n, I = a - Math.sin(s) * n;
-        this.ctx.beginPath(), this.ctx.moveTo(F, I), this.ctx.lineTo(e, a), this.ctx.strokeStyle = `rgba(${p},${g},${C},${u * 0.5})`, this.ctx.lineWidth = Math.max(0.5, r * 0.7), this.ctx.stroke();
+      if (i > 0.5) {
+        const m = e - Math.cos(o) * i, b = t - Math.sin(o) * i;
+        this.ctx.beginPath(), this.ctx.moveTo(m, b), this.ctx.lineTo(e, t), this.ctx.strokeStyle = `rgba(${c},${f},${u},${h * 0.5})`, this.ctx.lineWidth = Math.max(0.5, n * 0.7), this.ctx.stroke();
       }
-      this.ctx.beginPath(), this.ctx.arc(e, a, r, 0, Math.PI * 2), this.ctx.fillStyle = `rgba(255,255,255,${u})`, this.ctx.fill();
+      this.ctx.beginPath(), this.ctx.arc(e, t, n, 0, Math.PI * 2), this.ctx.fillStyle = `rgba(255,255,255,${h})`, this.ctx.fill();
     }
   }
   /** 调试模式：画一颗亮红色圆点 + 方向线 */
-  drawDebugDot(e, a, s) {
-    if (s.beginPath(), s.arc(e.x, e.y, 3, 0, Math.PI * 2), s.fillStyle = "#ff0000", s.fill(), a) {
-      const n = e.warpSpeed * 10;
-      s.beginPath(), s.moveTo(e.x, e.y), s.lineTo(
-        e.x + Math.cos(e.warpAngle) * n,
-        e.y + Math.sin(e.warpAngle) * n
-      ), s.strokeStyle = "rgba(255, 0, 0, 0.6)", s.lineWidth = 1, s.stroke();
+  drawDebugDot(e, t, o) {
+    if (o.beginPath(), o.arc(e.x, e.y, 3, 0, Math.PI * 2), o.fillStyle = "#ff0000", o.fill(), t) {
+      const i = e.warpSpeed * 10;
+      o.beginPath(), o.moveTo(e.x, e.y), o.lineTo(
+        e.x + Math.cos(e.warpAngle) * i,
+        e.y + Math.sin(e.warpAngle) * i
+      ), o.strokeStyle = "rgba(255, 0, 0, 0.6)", o.lineWidth = 1, o.stroke();
     }
   }
+  // ════════════════════════════════════════════════════════
+  // [P1-Q03] draw() 重构：四个状态分支提取为独立方法
+  // ════════════════════════════════════════════════════════
+  /**
+   * 正常状态：引力 + 闪烁 + 视差
+   * [P0-P03] 正常状态不使用 shadowBlur，改用双圈伪光晕模拟柔光效果
+   */
+  drawNormal(e, t, o, i, n, h) {
+    if (o) {
+      const c = e.x - i, f = e.y - n, u = Math.sqrt(c * c + f * f), m = u < D ? 1 - u / D : 0, b = Math.sin(h * 1e-3 * e.twinkleSpeed + e.twinkleOffset) * 0.5 + 0.5;
+      if (u < D && u > 0) {
+        const a = m * pe, p = e.ox - c / u * a, d = e.oy - f / u * a;
+        e.x += (p - e.x) * L, e.y += (d - e.y) * L;
+      } else
+        e.x += (e.ox - e.x) * L, e.y += (e.oy - e.y) * L;
+      if (e.y < -2 || e.y > this.canvasH + 2) return !1;
+      if (F)
+        this.drawDebugDot(e, !1, t);
+      else {
+        let a = e.baseAlpha;
+        a += m * 0.9, a += b * 0.25 * m, a = Math.min(1, a), t.beginPath(), t.arc(e.x, e.y, e.size * 2.5, 0, Math.PI * 2), t.fillStyle = `rgba(${e.colorR},${e.colorG},${e.colorB},${a * 0.12})`, t.fill(), t.beginPath(), t.arc(e.x, e.y, e.size, 0, Math.PI * 2), t.fillStyle = `rgba(${e.colorR},${e.colorG},${e.colorB},${a})`, t.fill();
+      }
+    } else {
+      if (e.x += (e.ox - e.x) * L, e.y += (e.oy - e.y) * L, e.y < -2 || e.y > this.canvasH + 2) return !1;
+      F ? this.drawDebugDot(e, !1, t) : (t.beginPath(), t.arc(e.x, e.y, e.size * 2.5, 0, Math.PI * 2), t.fillStyle = `rgba(${e.colorR},${e.colorG},${e.colorB},${e.baseAlpha * 0.12})`, t.fill(), t.beginPath(), t.arc(e.x, e.y, e.size, 0, Math.PI * 2), t.fillStyle = `rgba(${e.colorR},${e.colorG},${e.colorB},${e.baseAlpha})`, t.fill());
+    }
+    return !0;
+  }
+  /** 加速期：速度/拖尾/亮度从0渐增 */
+  drawRamp(e, t, o, i, n, h, c, f) {
+    if (e.warpStreak) {
+      const u = Math.sqrt(
+        (e.x - i) * (e.x - i) + (e.y - n) * (e.y - n)
+      ), m = Math.min(1, u / h), b = 5 - 4 * m, a = Math.pow(o, b), p = e.warpSpeed * a;
+      if (e.x += Math.cos(e.warpAngle) * p, e.y += Math.sin(e.warpAngle) * p, e.x < -50 || e.x > c + 50 || e.y < -50 || e.y > f + 50)
+        return this.resetAsCenterStar(e), !1;
+      if (F)
+        this.drawDebugDot(e, !0, t);
+      else {
+        const d = 1 + (ee - 1) * a * m, A = e.size * d, T = O * a;
+        let $ = e.baseAlpha + T;
+        $ = Math.min(1, $);
+        const w = p * 6;
+        this.drawStreakStar(e.x, e.y, e.warpAngle, w, A, $, e.colorR, e.colorG, e.colorB);
+      }
+    } else {
+      const u = Math.sqrt(
+        (e.x - i) * (e.x - i) + (e.y - n) * (e.y - n)
+      ), b = 5 - 4 * Math.min(1, u / h), a = Math.pow(o, b), p = e.warpSpeed * fe * a;
+      if (e.x += Math.cos(e.warpAngle) * p, e.y += Math.sin(e.warpAngle) * p, e.x < -50 || e.x > c + 50 || e.y < -50 || e.y > f + 50)
+        return this.resetAsCenterStar(e), !1;
+      if (F)
+        this.drawDebugDot(e, !1, t);
+      else {
+        let d = e.baseAlpha + O * a;
+        d = Math.min(1, d), t.beginPath(), t.arc(e.x, e.y, e.size, 0, Math.PI * 2), t.fillStyle = `rgba(${e.colorR},${e.colorG},${e.colorB},${d})`, t.fill();
+      }
+    }
+    return !0;
+  }
+  /** 巡航期：全速→减速停下，拖尾缩短 */
+  drawWarp(e, t, o, i, n, h, c, f) {
+    if (e.warpStreak) {
+      const u = e.warpSpeed * (1 - o * o);
+      if (e.x += Math.cos(e.warpAngle) * u, e.y += Math.sin(e.warpAngle) * u, e.x < -50 || e.x > c + 50 || e.y < -50 || e.y > f + 50)
+        return this.resetAsCenterStar(e), !1;
+      if (F)
+        this.drawDebugDot(e, !0, t);
+      else {
+        const m = Math.sqrt(
+          (e.x - i) * (e.x - i) + (e.y - n) * (e.y - n)
+        ), b = 1 + (ee - 1) * Math.min(1, m / h), a = e.size * b;
+        let p = e.baseAlpha + O;
+        p = Math.min(1, p);
+        const d = u * 6;
+        this.drawStreakStar(e.x, e.y, e.warpAngle, d, a, p, e.colorR, e.colorG, e.colorB);
+      }
+    } else {
+      const u = e.warpSpeed * fe * (1 - o * o);
+      if (e.x += Math.cos(e.warpAngle) * u, e.y += Math.sin(e.warpAngle) * u, e.x < -50 || e.x > c + 50 || e.y < -50 || e.y > f + 50)
+        return this.resetAsCenterStar(e), !1;
+      if (F)
+        this.drawDebugDot(e, !1, t);
+      else {
+        let m = e.baseAlpha + O;
+        m = Math.min(1, m), t.beginPath(), t.arc(e.x, e.y, e.size, 0, Math.PI * 2), t.fillStyle = `rgba(${e.colorR},${e.colorG},${e.colorB},${m})`, t.fill();
+      }
+    }
+    return !0;
+  }
+  /** 衰减期：亮度/大小/光晕缓回正常，引力渐入
+   *  @todo [W-01 技术债务] 无鼠标时星星缺少缓动回归原位的 else 分支，
+   *  对比 drawNormal 有对应逻辑。当前 decay 持续约 500ms，影响轻微，后续补 3 行 else 即可 */
+  drawDecay(e, t, o, i, n, h, c, f, u, m) {
+    const b = 1 - (1 - o) * (1 - o), a = b;
+    if (f && a > 0.01) {
+      const p = e.x - u, d = e.y - m, A = Math.sqrt(p * p + d * d), T = A < D ? 1 - A / D : 0;
+      if (A < D && A > 0) {
+        const $ = T * pe * a;
+        e.x += (e.ox - p / A * $ - e.x) * L, e.y += (e.oy - d / A * $ - e.y) * L;
+      } else
+        e.x += (e.ox - e.x) * L * a, e.y += (e.oy - e.y) * L * a;
+    }
+    if (e.y < -2 || e.y > c + 2) return !1;
+    if (F)
+      this.drawDebugDot(e, !1, t);
+    else {
+      const p = O * (1 - b);
+      let d = e.baseAlpha + p;
+      d = Math.min(1, d);
+      const A = Math.sqrt(
+        (e.x - i) * (e.x - i) + (e.y - n) * (e.y - n)
+      ), T = 1 + (ee - 1) * (1 - b) * Math.min(1, A / h), $ = e.size * T;
+      t.beginPath(), t.arc(e.x, e.y, $, 0, Math.PI * 2), t.fillStyle = `rgba(255,255,255,${d})`, t.fill();
+      const w = d * 0.12 * (1 - b);
+      w > 0.01 && (t.beginPath(), t.arc(e.x, e.y, $ * 2.5, 0, Math.PI * 2), t.fillStyle = `rgba(${e.colorR},${e.colorG},${e.colorB},${w})`, t.fill());
+    }
+    return !0;
+  }
   /** 绘制一帧 */
-  draw(e, a, s, n) {
+  draw(e, t, o, i) {
     if (!this.ctx) return;
     this.fpsFrameCount++, e - this.fpsLastTime >= 1e3 && (this.fps = this.fpsFrameCount, this.fpsFrameCount = 0, this.fpsLastTime = e);
-    const u = (this.scrollY - this.prevScrollY) * At;
+    const h = (this.scrollY - this.prevScrollY) * _e;
     this.prevScrollY = this.scrollY;
-    const p = this.canvasH * pt, g = -p, C = this.canvasH + p;
+    const c = this.canvasH * me, f = -c, u = this.canvasH + c;
     if (this.warpPhase === "normal" || this.warpPhase === "decay")
-      for (const i of this.stars)
-        i.oy -= u, i.y -= u, i.oy > C ? (i.ox = Math.random() * this.canvasW, i.oy = g - Math.random() * p * 0.5, i.x = i.ox, i.y = i.oy) : i.oy < g && (i.ox = Math.random() * this.canvasW, i.oy = C + Math.random() * p * 0.5, i.x = i.ox, i.y = i.oy);
+      for (const s of this.stars)
+        s.oy -= h, s.y -= h, s.oy > u ? (s.ox = Math.random() * this.canvasW, s.oy = f - Math.random() * c * 0.5, s.x = s.ox, s.y = s.oy) : s.oy < f && (s.ox = Math.random() * this.canvasW, s.oy = u + Math.random() * c * 0.5, s.x = s.ox, s.y = s.oy);
     this.frameCount++;
-    let F = 0, I = 0;
-    const o = this.ctx, $ = this.canvasW, l = this.canvasH;
-    o.clearRect(0, 0, $, l), w && (o.fillStyle = "rgba(255, 255, 0, 0.15)", o.fillRect(0, 0, $, l));
-    const h = $ / 2, d = l / 2, k = Math.sqrt($ * $ + l * l) / 2;
-    let f = 0;
+    let m = 0, b = 0;
+    const a = this.ctx, p = this.canvasW, d = this.canvasH;
+    a.clearRect(0, 0, p, d), F && (a.fillStyle = "rgba(255, 255, 0, 0.15)", a.fillRect(0, 0, p, d));
+    const A = p / 2, T = d / 2, $ = Math.sqrt(p * p + d * d) / 2;
+    let w = 0;
     if (this.warpPhase !== "normal") {
-      const i = this.warpPhase === "ramp" ? St : this.warpPhase === "warp" ? this.cruiseDuration : Mt;
-      if (f = Math.max(0, Math.min(1, (e - this.phaseStart) / i)), f >= 1)
-        if (this.warpPhase === "ramp")
-          this.warpPhase = "warp", this.phaseStart = e, f = 0, A(`phase: ramp→warp, stars=${this.stars.length}`);
-        else if (this.warpPhase === "warp") {
-          this.warpPhase = "decay", this.phaseStart = e, f = 0;
-          let t = 0;
-          for (let T = 0; T < this.stars.length; T++) {
-            const x = this.stars[T];
-            x.ox = x.x, x.oy = x.y, x.warpBornInWarp = !1, (x.ox < -2 || x.ox > $ + 2 || x.oy < -2 || x.oy > l + 2) && (this.resetAsCenterStar(x), t++);
-          }
-          A(`phase: warp→decay, stars=${this.stars.length}, recycled=${t}`);
-        } else this.warpPhase === "decay" && (this.warpPhase = "normal", f = 0, A(`phase: decay→normal, stars=${this.stars.length}`));
+      const s = this.warpPhase === "ramp" ? Ee : this.warpPhase === "warp" ? this.cruiseDuration : xe;
+      w = Math.max(0, Math.min(1, (e - this.phaseStart) / s)), w >= 1 && (this.warpPhase === "ramp" ? (this.warpPhase = "warp", this.phaseStart = e, w = 0, P("draw: ramp→warp")) : this.warpPhase === "warp" ? (this.warpPhase = "decay", this.phaseStart = e, w = 0, P("draw: warp→decay")) : this.warpPhase === "decay" && (this.warpPhase = "normal", w = 0, P("draw: decay→normal")));
     }
-    if (w)
-      o.shadowBlur = 0;
-    else
+    const G = this.warpPhase !== "normal", X = this.fps === 0 || this.fps >= Re, g = G && X;
+    if (F)
+      a.shadowBlur = 0;
+    else if (g)
       switch (this.warpPhase) {
         case "ramp":
-          o.shadowBlur = 4 + 4 * f * f;
+          a.shadowBlur = 4 + 4 * w * w;
           break;
         case "warp":
-          o.shadowBlur = 8;
+          a.shadowBlur = 8;
           break;
         case "decay":
-          o.shadowBlur = 4 + 4 * (1 - f);
+          a.shadowBlur = 4 + 4 * (1 - w);
           break;
         default:
-          o.shadowBlur = 4;
+          a.shadowBlur = 0;
           break;
       }
-    if (w && this.warpPhase === "ramp" && f < 0.05) {
-      const i = this.stars.slice(0, 5).map((t) => `(${t.x.toFixed(0)},${t.y.toFixed(0)})`).join(" ");
-      A(`ramp-early: p=${f.toFixed(3)}, 星星样本 = ${i}`);
+    else
+      a.shadowBlur = 0;
+    if (F && this.warpPhase === "ramp" && w < 0.05) {
+      const s = this.stars.slice(0, 5).map((v) => `(${v.x.toFixed(0)},${v.y.toFixed(0)})`).join(" ");
+      P(`ramp-early: p=${w.toFixed(3)}, 星星样本 = ${s}`);
     }
-    for (let i = this.stars.length - 1; i >= 0; i--) {
-      const t = this.stars[i], T = t.colorR, x = t.colorG, O = t.colorB;
-      switch (w || (o.shadowColor = `rgba(${T}, ${x}, ${O}, 0.8)`), this.warpPhase) {
+    for (let s = this.stars.length - 1; s >= 0; s--) {
+      const v = this.stars[s], I = v.colorR, j = v.colorG, we = v.colorB;
+      switch (g && (a.shadowColor = `rgba(${I}, ${j}, ${we}, 0.8)`), this.warpPhase) {
         case "normal": {
-          if (a) {
-            const S = t.x - s, M = t.y - n, v = Math.sqrt(S * S + M * M), y = v < B ? 1 - v / B : 0, m = Math.sin(e * 1e-3 * t.twinkleSpeed + t.twinkleOffset) * 0.5 + 0.5;
-            if (v < B && v > 0) {
-              const b = y * ut, D = t.ox - S / v * b, tt = t.oy - M / v * b;
-              t.x += (D - t.x) * E, t.y += (tt - t.y) * E;
-            } else
-              t.x += (t.ox - t.x) * E, t.y += (t.oy - t.y) * E;
-            if (t.y < -2 || t.y > l + 2) continue;
-            if (w)
-              this.drawDebugDot(t, !1, o);
-            else {
-              let b = t.baseAlpha;
-              b += y * 0.9, b += m * 0.25 * y, b = Math.min(1, b), o.beginPath(), o.arc(t.x, t.y, t.size, 0, Math.PI * 2), o.fillStyle = `rgba(${T},${x},${O},${b})`, o.fill();
-            }
-          } else {
-            if (t.x += (t.ox - t.x) * E, t.y += (t.oy - t.y) * E, t.y < -2 || t.y > l + 2) continue;
-            w ? this.drawDebugDot(t, !1, o) : (o.beginPath(), o.arc(t.x, t.y, t.size, 0, Math.PI * 2), o.fillStyle = `rgba(${T},${x},${O},${t.baseAlpha})`, o.fill());
-          }
+          if (!this.drawNormal(v, a, t, o, i, e)) continue;
           break;
         }
         case "ramp": {
-          if (t.warpStreak) {
-            const S = Math.sqrt(
-              (t.x - h) * (t.x - h) + (t.y - d) * (t.y - d)
-            ), M = Math.min(1, S / k), v = 5 - 4 * M, y = Math.pow(f, v), m = t.warpSpeed * y;
-            if (t.x += Math.cos(t.warpAngle) * m, t.y += Math.sin(t.warpAngle) * m, t.x < -50 || t.x > $ + 50 || t.y < -50 || t.y > l + 50) {
-              this.resetAsCenterStar(t), w && I++;
-              continue;
-            }
-            if (w)
-              this.drawDebugDot(t, !0, o);
-            else {
-              const b = 1 + (at - 1) * y * M, D = t.size * b, tt = q * y;
-              let et = t.baseAlpha + tt;
-              et = Math.min(1, et);
-              const yt = m * 6;
-              this.drawStreakStar(t.x, t.y, t.warpAngle, yt, D, et, T, x, O);
-            }
-          } else {
-            const S = Math.sqrt(
-              (t.x - h) * (t.x - h) + (t.y - d) * (t.y - d)
-            ), v = 5 - 4 * Math.min(1, S / k), y = Math.pow(f, v), m = t.warpSpeed * ft * y;
-            if (t.x += Math.cos(t.warpAngle) * m, t.y += Math.sin(t.warpAngle) * m, t.x < -50 || t.x > $ + 50 || t.y < -50 || t.y > l + 50) {
-              this.resetAsCenterStar(t);
-              continue;
-            }
-            if (w)
-              this.drawDebugDot(t, !1, o);
-            else {
-              let b = t.baseAlpha + q * y;
-              b = Math.min(1, b), o.beginPath(), o.arc(t.x, t.y, t.size, 0, Math.PI * 2), o.fillStyle = `rgba(${T},${x},${O},${b})`, o.fill();
-            }
-          }
+          if (!this.drawRamp(v, a, w, A, T, $, p, d)) continue;
           break;
         }
         case "warp": {
-          if (t.warpStreak) {
-            const S = t.warpSpeed * (1 - f * f);
-            if (t.x += Math.cos(t.warpAngle) * S, t.y += Math.sin(t.warpAngle) * S, t.x < -50 || t.x > $ + 50 || t.y < -50 || t.y > l + 50) {
-              this.resetAsCenterStar(t), w && I++;
-              continue;
-            }
-            if (w)
-              this.drawDebugDot(t, !0, o);
-            else {
-              const M = Math.sqrt(
-                (t.x - h) * (t.x - h) + (t.y - d) * (t.y - d)
-              ), v = 1 + (at - 1) * Math.min(1, M / k), y = t.size * v;
-              let m = t.baseAlpha + q;
-              m = Math.min(1, m);
-              const b = S * 6;
-              this.drawStreakStar(t.x, t.y, t.warpAngle, b, y, m, T, x, O);
-            }
-          } else {
-            const S = t.warpSpeed * ft * (1 - f * f);
-            if (t.x += Math.cos(t.warpAngle) * S, t.y += Math.sin(t.warpAngle) * S, t.x < -50 || t.x > $ + 50 || t.y < -50 || t.y > l + 50) {
-              this.resetAsCenterStar(t);
-              continue;
-            }
-            if (w)
-              this.drawDebugDot(t, !1, o);
-            else {
-              let M = t.baseAlpha + q;
-              M = Math.min(1, M), o.beginPath(), o.arc(t.x, t.y, t.size, 0, Math.PI * 2), o.fillStyle = `rgba(${T},${x},${O},${M})`, o.fill();
-            }
-          }
+          if (!this.drawWarp(v, a, w, A, T, $, p, d)) continue;
           break;
         }
         case "decay": {
-          const S = 1 - (1 - f) * (1 - f), M = S;
-          if (a && M > 0.01) {
-            const v = t.x - s, y = t.y - n, m = Math.sqrt(v * v + y * y), b = m < B ? 1 - m / B : 0;
-            if (m < B && m > 0) {
-              const D = b * ut * M;
-              t.x += (t.ox - v / m * D - t.x) * E, t.y += (t.oy - y / m * D - t.y) * E;
-            } else
-              t.x += (t.ox - t.x) * E * M, t.y += (t.oy - t.y) * E * M;
-          }
-          if (t.y < -2 || t.y > l + 2) continue;
-          if (w)
-            this.drawDebugDot(t, !1, o);
-          else {
-            const v = q * (1 - S);
-            let y = t.baseAlpha + v;
-            y = Math.min(1, y);
-            const m = Math.sqrt(
-              (t.x - h) * (t.x - h) + (t.y - d) * (t.y - d)
-            ), b = 1 + (at - 1) * (1 - S) * Math.min(1, m / k), D = t.size * b;
-            o.beginPath(), o.arc(t.x, t.y, D, 0, Math.PI * 2), o.fillStyle = `rgba(255,255,255,${y})`, o.fill();
-          }
+          if (!this.drawDecay(v, a, w, A, T, $, d, t, o, i)) continue;
           break;
         }
       }
     }
-    let R = 0, G = 0, K = 0, j = 0;
-    if (w) {
-      R = 1 / 0, G = -1 / 0, K = 1 / 0, j = -1 / 0;
-      for (const i of this.stars)
-        i.x < R && (R = i.x), i.x > G && (G = i.x), i.y < K && (K = i.y), i.y > j && (j = i.y), i.x >= 0 && i.x <= $ && i.y >= 0 && i.y <= l && F++;
+    if (this.warpPhase !== "normal")
+      for (const s of this.stars)
+        s.ox = s.x, s.oy = s.y;
+    let x = 0, M = 0, S = 0, y = 0;
+    if (F) {
+      x = 1 / 0, M = -1 / 0, S = 1 / 0, y = -1 / 0;
+      for (const s of this.stars)
+        s.x < x && (x = s.x), s.x > M && (M = s.x), s.y < S && (S = s.y), s.y > y && (y = s.y), s.x >= 0 && s.x <= p && s.y >= 0 && s.y <= d ? m++ : b++;
     }
-    if (w) {
-      o.shadowBlur = 0;
-      const i = this.hideable.querySelectorAll(".orca-startrek-starfield").length;
-      o.fillStyle = "#ff0000", o.font = "bold 14px monospace", o.textBaseline = "top", o.fillText(`phase: ${this.warpPhase} | fps: ${this.fps}`, 10, 10), o.fillText(`stars: ${this.stars.length} | inCanvas: ${F} | offCanvas: ${I}`, 10, 30), o.fillText(`canvas: ${$}x${l} | canvases: ${i}`, 10, 50), i > 1 && o.fillText(`⚠ 检测到 ${i} 个 canvas！`, 10, 70);
+    if (F) {
+      a.shadowBlur = 0;
+      const s = this.hideable.querySelectorAll(".orca-startrek-starfield").length;
+      a.fillStyle = "#ff0000", a.font = "bold 14px monospace", a.textBaseline = "top", a.fillText(`phase: ${this.warpPhase} | fps: ${this.fps} | ${N[Y].label}`, 10, 10), a.fillText(`stars: ${this.stars.length} | inCanvas: ${m} | offCanvas: ${b}`, 10, 30), a.fillText(`canvas: ${p}x${d} | canvases: ${s}`, 10, 50), s > 1 && a.fillText(`⚠ 检测到 ${s} 个 canvas！`, 10, 70);
     }
-    if (o.shadowBlur = 0, w) {
-      const i = this.warpPhase !== "normal" ? 1 : 60;
-      this.frameCount % i === 0 && A(`tick: phase=${this.warpPhase}, stars=${this.stars.length}, inCanvas=${F}, x=[${R.toFixed(0)},${G.toFixed(0)}] y=[${K.toFixed(0)},${j.toFixed(0)}], canvas=${$}x${l}`);
+    if (a.shadowBlur = 0, F) {
+      const s = this.warpPhase !== "normal" ? 1 : 60;
+      this.frameCount % s === 0 && P(`tick: phase=${this.warpPhase}, stars=${this.stars.length}, inCanvas=${m}, x=[${x.toFixed(0)},${M.toFixed(0)}] y=[${S.toFixed(0)},${y.toFixed(0)}], canvas=${p}x${d}`);
     }
   }
   /** 销毁实例 */
@@ -335,189 +367,247 @@ class kt {
     this.canvas.remove(), this.ctx = null, this.stars = [];
   }
 }
-const nt = "__startrek_cleanup";
-function Ct() {
-  const c = window[nt];
-  c && (A("startStarfield: 清理上一套残留实例"), c());
-  let e = 0, a = -999, s = -999, n = null;
-  const r = /* @__PURE__ */ new Map();
-  xt();
-  const u = () => {
-    const l = document.querySelectorAll(
+function Ne() {
+  const l = window.__startrek_cleanup;
+  l && (P("startStarfield: 清理上一套残留实例"), l());
+  let e = 0, t = -999, o = -999, i = null;
+  const n = /* @__PURE__ */ new Map();
+  Fe();
+  const h = () => {
+    const g = document.querySelector(".orca-panels-container");
+    if (!g) return;
+    const x = g.querySelectorAll(
       ".orca-hideable:not(.orca-hideable-hidden):not(.orca-memoizedviews-active)"
     );
-    for (const h of l) {
-      const d = h;
-      r.has(d) || r.set(d, new kt(d));
+    for (const M of x) {
+      const S = M;
+      n.has(S) || n.set(S, new De(S));
     }
-    for (const [h, d] of r)
-      (!document.body.contains(h) || h.classList.contains("orca-hideable-hidden") || h.classList.contains("orca-memoizedviews-active")) && (d.destroy(), r.delete(h));
-  }, p = (l) => {
-    for (const [, h] of r) {
-      h.resize(), h.updateScroll();
-      const d = h.hideable === n, k = d ? a : -999, f = d ? s : -999;
-      h.draw(l, d, k, f);
-    }
-    e = requestAnimationFrame(p);
-  }, g = (l) => {
-    var d;
-    const h = document.elementFromPoint(l.clientX, l.clientY);
-    if (h) {
-      const k = (d = h.closest) == null ? void 0 : d.call(h, ".orca-hideable");
-      if (k && r.has(k)) {
-        n = k;
-        const f = k.getBoundingClientRect();
-        a = l.clientX - f.left, s = l.clientY - f.top;
-      } else
-        n = null, a = -999, s = -999;
-    }
-  }, C = () => {
-    n = null, a = -999, s = -999;
+    for (const [M, S] of n)
+      (!document.body.contains(M) || M.classList.contains("orca-hideable-hidden") || M.classList.contains("orca-memoizedviews-active")) && (S.destroy(), n.delete(M));
   };
-  document.addEventListener("pointermove", g), document.addEventListener("pointerleave", C);
-  const F = new MutationObserver(() => {
-    u();
+  let c = 0;
+  const f = (g) => {
+    const S = 1e3 / (Array.from(n.values()).some((y) => y.warpPhase !== "normal") ? 120 : N[Y].maxFps);
+    if (g - c < S) {
+      e = requestAnimationFrame(f);
+      return;
+    }
+    if (c = g, ne) {
+      ne = !1;
+      for (const [, y] of n)
+        y.generateStars();
+    }
+    for (const [y, s] of n) {
+      if (y.classList.contains("orca-hideable-hidden") || y.classList.contains("orca-memoizedviews-active") || !document.body.contains(y)) {
+        s.destroy(), n.delete(y);
+        continue;
+      }
+      s.resize(), s.updateScroll();
+      const v = s.hideable === i, I = v ? t : -999, j = v ? o : -999;
+      s.draw(g, v, I, j);
+    }
+    e = requestAnimationFrame(f);
+  };
+  let u = 0;
+  const m = (g) => {
+    var S;
+    const x = performance.now();
+    if (x - u < ke) {
+      if (i && n.has(i)) {
+        const y = i.getBoundingClientRect();
+        t = g.clientX - y.left, o = g.clientY - y.top;
+      }
+      return;
+    }
+    u = x;
+    const M = document.elementFromPoint(g.clientX, g.clientY);
+    if (M) {
+      const y = (S = M.closest) == null ? void 0 : S.call(M, ".orca-hideable");
+      if (y && n.has(y)) {
+        i = y;
+        const s = y.getBoundingClientRect();
+        t = g.clientX - s.left, o = g.clientY - s.top;
+      } else
+        i = null, t = -999, o = -999;
+    }
+  }, b = () => {
+    i = null, t = -999, o = -999;
+  };
+  document.addEventListener("pointermove", m), document.addEventListener("pointerleave", b);
+  const a = new MutationObserver((g) => {
+    var x, M;
+    for (const S of g) {
+      if (S.type !== "attributes") continue;
+      const y = S.target;
+      if (S.attributeName === "class" && y.classList.contains("orca-repr-task-content") && y.classList.contains("orca-repr-task-1") && !y.classList.contains("orca-repr-task-0")) {
+        const s = y.closest(".orca-hideable");
+        if (s) {
+          const v = n.get(s);
+          v && v.triggerWarp();
+        }
+      }
+      if (S.attributeName === "data-status" && ((x = y.dataset) == null ? void 0 : x.name) === "task" && ((M = y.dataset) == null ? void 0 : M.status) === "Done") {
+        if (!y.closest(".orca-repr-main-content")) continue;
+        const v = y.closest(".orca-hideable");
+        if (v) {
+          const I = n.get(v);
+          I && (P("bigTaskObserver: 大任务完成，触发 5 秒跃迁"), I.triggerWarp(4100));
+        }
+      }
+    }
   });
-  F.observe(document.body, {
+  a.observe(document.body, {
+    attributes: !0,
+    subtree: !0,
+    attributeFilter: ["class", "data-status"]
+  });
+  const p = new MutationObserver(() => {
+    h();
+  });
+  p.observe(document.body, {
     childList: !0,
     subtree: !0
   });
-  const I = new MutationObserver((l) => {
-    for (const h of l)
-      if (h.type === "attributes" && h.attributeName === "class") {
-        const d = h.target;
-        if (d.classList.contains("orca-repr-task-content") && d.classList.contains("orca-repr-task-1") && !d.classList.contains("orca-repr-task-0")) {
-          const k = d.closest(".orca-hideable");
-          if (k) {
-            const f = r.get(k);
-            f && f.triggerWarp();
-          }
-        }
-      }
-  });
-  I.observe(document.body, {
-    attributes: !0,
-    subtree: !0,
-    attributeFilter: ["class"]
-  });
-  const o = new MutationObserver((l) => {
-    for (const h of l)
-      if (h.type === "attributes" && h.attributeName === "data-status") {
-        const d = h.target;
-        if (d.dataset.name === "task" && d.dataset.status === "Done") {
-          if (!d.closest(".orca-repr-main-content")) continue;
-          const f = d.closest(".orca-hideable");
-          if (f) {
-            const R = r.get(f);
-            R && (A("bigTaskObserver: 大任务完成，触发 5 秒跃迁"), R.triggerWarp(4100));
-          }
-        }
-      }
-  });
-  o.observe(document.body, {
-    attributes: !0,
-    subtree: !0,
-    attributeFilter: ["data-status"]
-  }), u(), setTimeout(u, 500), setTimeout(u, 2e3), e = requestAnimationFrame(p);
-  const $ = () => {
-    cancelAnimationFrame(e), document.removeEventListener("pointermove", g), document.removeEventListener("pointerleave", C), F.disconnect(), I.disconnect(), o.disconnect();
-    for (const [, l] of r)
-      l.destroy();
-    r.clear(), document.querySelectorAll(".orca-startrek-starfield").forEach((l) => l.remove()), delete window[nt];
+  let d = !1;
+  const A = (g) => {
+    d || (d = !0, cancelAnimationFrame(e), P(`暂停渲染: ${g}`));
+  }, T = (g) => {
+    d && (d = !1, c = 0, e = requestAnimationFrame(f), P(`恢复渲染: ${g}`));
+  }, $ = () => {
+    document.hidden ? A("visibilitychange") : T("visibilitychange");
+  }, w = () => A("window blur"), G = () => T("window focus");
+  document.addEventListener("visibilitychange", $), window.addEventListener("blur", w), window.addEventListener("focus", G), h(), setTimeout(h, 500), setTimeout(h, 2e3), e = requestAnimationFrame(f);
+  const X = () => {
+    cancelAnimationFrame(e), document.removeEventListener("pointermove", m), document.removeEventListener("pointerleave", b), document.removeEventListener("visibilitychange", $), window.removeEventListener("blur", w), window.removeEventListener("focus", G), p.disconnect(), a.disconnect();
+    for (const [, g] of n)
+      g.destroy();
+    n.clear(), document.querySelectorAll(".orca-startrek-starfield").forEach((g) => g.remove()), Reflect.deleteProperty(window, "__startrek_cleanup");
   };
-  return window[nt] = $, $;
+  return window.__startrek_cleanup = X, X;
 }
-let z, rt = !1, V = !0, X = !1;
-const L = "oh-StarTrek", Tt = 55, Ft = 54, ot = "Noto Serif SC", mt = '"Noto Serif", "Noto Serif SC", "Source Han Serif SC", Georgia, "STSong", "SimSun", serif', W = (...c) => {
-  rt && console.log("[oh-StarTrek]", ...c);
+const _ = "oh-StarTrek", oe = 55, se = 54, te = "Noto Serif SC", ye = '"Noto Serif", "Noto Serif SC", "Source Han Serif SC", Georgia, "STSong", "SimSun", serif', Oe = 200, Be = 500, We = 150, He = 0.15, Ue = 400, qe = 1500, ze = 200, Ye = 0.6, ge = 'link[rel="stylesheet"][href*="startrek"]', r = {
+  pluginName: "",
+  debugMode: !1,
+  fullMode: !0,
+  serifFontMode: !1,
+  queryFontUnifyMode: !1,
+  currentThemeName: null,
+  originalEditorFont: null,
+  originalUIFont: null,
+  powerLevel: "full"
+}, C = (...l) => {
+  r.debugMode && console.log("[oh-StarTrek]", ...l);
 };
-function It() {
-  const c = (a = document) => {
-    a.querySelectorAll(".orca-select-menu .orca-select-item-label").forEach((s) => {
-      var r;
-      const n = (r = s.textContent) == null ? void 0 : r.trim();
-      n && (s.dataset.fontPreview || n !== "默认" && (s.style.fontFamily = `"${n}", sans-serif`, s.dataset.fontPreview = n));
+let V = null, K = null, H = null, Q = null, R = null, U = null, q = null, z = null;
+function Ge() {
+  const l = (t = document) => {
+    t.querySelectorAll(".orca-select-menu .orca-select-item-label").forEach((o) => {
+      var n;
+      const i = (n = o.textContent) == null ? void 0 : n.trim();
+      i && (o.dataset.fontPreview || i !== "默认" && (o.style.fontFamily = `"${i}", sans-serif`, o.dataset.fontPreview = i));
     });
   };
-  setTimeout(() => c(), 2e3);
-  const e = new MutationObserver((a) => {
-    for (const s of a)
-      if (s.type === "childList" && s.addedNodes.length > 0)
-        for (const n of s.addedNodes)
-          n instanceof Element && c(n);
+  setTimeout(() => l(), 2e3);
+  const e = new MutationObserver((t) => {
+    for (const o of t)
+      if (o.type === "childList" && o.addedNodes.length > 0)
+        for (const i of o.addedNodes)
+          i instanceof Element && l(i);
   });
   return e.observe(document.body, { childList: !0, subtree: !0 }), e;
 }
-let Z = null;
-function Et() {
-  const c = (e) => {
-    const a = e.closest(".orca-input");
-    if (!a) return;
-    const s = a.offsetWidth, n = Math.max(200, Math.min(500, 150 + s * 0.15));
-    a.style.setProperty("--milk-input-spread-dur", `${n}ms`);
+function Xe() {
+  const l = (e) => {
+    const t = e.closest(".orca-input");
+    if (!t) return;
+    const o = t.offsetWidth, i = Math.max(Oe, Math.min(Be, We + o * He));
+    t.style.setProperty("--milk-input-spread-dur", `${i}ms`);
   };
-  document.addEventListener(
-    "focusin",
-    (e) => {
-      const a = e.target, s = a.closest(".orca-input");
-      s && (c(a), s.style.setProperty("--milk-input-spread", "1"));
-    },
-    !0
-  ), document.addEventListener(
-    "focusout",
-    (e) => {
-      const s = e.target.closest(".orca-input");
-      s && s.style.removeProperty("--milk-input-spread");
-    },
-    !0
-  );
+  U = (e) => {
+    if (!(e.target instanceof HTMLElement)) return;
+    const t = e.target.closest(".orca-input");
+    t && (l(e.target), t.style.setProperty("--milk-input-spread", "1"));
+  }, q = (e) => {
+    if (!(e.target instanceof HTMLElement)) return;
+    const t = e.target.closest(".orca-input");
+    t && t.style.removeProperty("--milk-input-spread");
+  }, document.addEventListener("focusin", U, !0), document.addEventListener("focusout", q, !0);
 }
-function Dt() {
-  const c = (a) => {
-    const s = a.offsetHeight, n = Math.max(400, Math.min(1500, 200 + s * 0.6));
-    a.style.setProperty("--milk-scope-spread-dur", `${n}ms`);
+function Ve() {
+  const l = (t) => {
+    const o = t.offsetHeight, i = Math.max(Ue, Math.min(qe, ze + o * Ye));
+    t.style.setProperty("--milk-scope-spread-dur", `${i}ms`);
   };
-  document.addEventListener(
-    "mouseenter",
-    (a) => {
-      var n, r;
-      const s = (r = (n = a.target).closest) == null ? void 0 : r.call(n, ".orca-repr-scope-line");
-      s && c(s);
-    },
-    !0
-  ), new MutationObserver((a) => {
-    for (const s of a)
-      if (s.type === "attributes" && s.attributeName === "class") {
-        const n = s.target;
-        if (n.classList.contains("orca-active-parent")) {
-          const r = n.querySelector(".orca-repr-scope-line");
-          r && c(r);
+  z = (t) => {
+    var i, n;
+    if (!(t.target instanceof HTMLElement)) return;
+    const o = (n = (i = t.target).closest) == null ? void 0 : n.call(i, ".orca-repr-scope-line");
+    o && l(o);
+  }, document.addEventListener("mouseenter", z, !0);
+  const e = new MutationObserver((t) => {
+    for (const o of t)
+      if (o.type === "attributes" && o.attributeName === "class") {
+        const i = o.target;
+        if (i.classList.contains("orca-active-parent")) {
+          const n = i.querySelector(".orca-repr-scope-line");
+          n && l(n);
         }
       }
-  }).observe(document.body, { attributes: !0, subtree: !0, attributeFilter: ["class"] });
+  });
+  e.observe(document.body, { attributes: !0, subtree: !0, attributeFilter: ["class"] }), K = e;
 }
-let N = null, _ = null, Q = null, J = null;
-function it() {
-  W(`applyStarfield: currentThemeName="${_}", THEME_NAME="${L}", fullMode=${V}`), N && (N(), N = null), _ === L && V ? (N = Ct(), W("星空已启动")) : W(`星空未启动（${_ !== L ? "主题不匹配" : "满血模式关闭"}）`);
+function ie() {
+  C(`applyStarfield: currentThemeName="${r.currentThemeName}", THEME_NAME="${_}", fullMode=${r.fullMode}`), R && (R(), R = null), r.currentThemeName === _ && r.fullMode ? (R = Ne(), C("星空已启动")) : C(`星空未启动（${r.currentThemeName !== _ ? "主题不匹配" : "满血模式关闭"}）`);
 }
-function ct() {
-  orca.state.settings[Tt] = ot, orca.state.settings[Ft] = ot, document.documentElement.style.setProperty("--orca-fontfamily-editor", mt), document.documentElement.style.setProperty("--orca-fontfamily-ui", mt), W(`已设置字体为 ${ot}（设置值 + CSS 变量）`);
+function ae() {
+  r.originalEditorFont === null && (r.originalEditorFont = orca.state.settings[oe]), r.originalUIFont === null && (r.originalUIFont = orca.state.settings[se]), orca.state.settings[oe] = te, orca.state.settings[se] = te, document.documentElement.style.setProperty("--orca-fontfamily-editor", ye), document.documentElement.style.setProperty("--orca-fontfamily-ui", ye), C(`已设置字体为 ${te}（设置值 + CSS 变量）`);
 }
-const Lt = () => {
-  const c = !!document.querySelector('link[rel="stylesheet"][href*="startrek"]'), e = c ? L : "";
-  e !== _ && (_ = e, W(`主题变更检测: startrek CSS ${c ? "已加载" : "未加载"}`), c && X && ct(), it());
+function le() {
+  r.originalEditorFont !== null && (orca.state.settings[oe] = r.originalEditorFont), r.originalUIFont !== null && (orca.state.settings[se] = r.originalUIFont), document.documentElement.style.removeProperty("--orca-fontfamily-editor"), document.documentElement.style.removeProperty("--orca-fontfamily-ui"), r.originalEditorFont = null, r.originalUIFont = null, C("已恢复用户原始字体设置");
+}
+const be = "startrek-query-font-unified";
+function re() {
+  document.documentElement.classList.add(be), C("已开启查询字体统一化");
+}
+function ce() {
+  document.documentElement.classList.remove(be), C("已关闭查询字体统一化");
+}
+const Ke = () => {
+  const l = !!document.querySelector(ge), e = l ? _ : "";
+  e !== r.currentThemeName && (r.currentThemeName = e, C(`主题变更检测: startrek CSS ${l ? "已加载" : "未加载"}`), l && r.serifFontMode && ae(), !l && r.serifFontMode && r.originalEditorFont !== null && le(), l && r.queryFontUnifyMode ? re() : l || ce(), ie());
 };
-async function _t(c) {
-  z = c, orca.state.locale, await orca.plugins.setSettingsSchema(z, {
+async function je(l) {
+  r.pluginName = l;
+  const e = (n) => ({
     fullMode: {
       label: "跃迁引擎",
       description: "电脑太卡！关闭跃迁引擎！(ಥ_ಥ)",
       type: "boolean",
       defaultValue: !0
     },
+    ...n ? {
+      powerLevel: {
+        label: "引擎功率",
+        description: "最大功率：密度×1.0 | 巡航功率：密度×0.8 | 引擎怠速：密度×0.6。跃迁期间自动解锁帧率",
+        type: "singleChoice",
+        defaultValue: "full",
+        choices: [
+          { label: "最大功率", value: "full" },
+          { label: "巡航功率", value: "cruise" },
+          { label: "引擎怠速", value: "standby" }
+        ]
+      }
+    } : {},
     serifFontMode: {
       label: "加载主题时使用推荐字体",
       description: "启用后，切换到本主题时自动将编辑器与 UI 字体设为衬线体（Noto Serif SC）；关闭则恢复原生逻辑",
+      type: "boolean",
+      defaultValue: !1
+    },
+    queryFontUnifyMode: {
+      label: "查询字体统一化",
+      description: "启用后，查询结果（卡片/表格/列表）中的标题块字体与文本块保持一致",
       type: "boolean",
       defaultValue: !1
     },
@@ -527,23 +617,26 @@ async function _t(c) {
       defaultValue: !1
     }
   });
-  const e = () => {
-    var g;
-    const n = (g = orca.state.plugins[z]) == null ? void 0 : g.settings, r = !!(n != null && n.debugMode), u = (n == null ? void 0 : n.fullMode) !== !1, p = !!(n != null && n.serifFontMode);
-    rt = r, gt(rt), p !== X && (X = p, X && _ === L && ct()), u !== V ? (V = u, it()) : V = u;
+  await orca.plugins.setSettingsSchema(r.pluginName, e(!0));
+  const t = () => {
+    var b;
+    const n = (b = orca.state.plugins[r.pluginName]) == null ? void 0 : b.settings, h = !!(n != null && n.debugMode), c = (n == null ? void 0 : n.fullMode) !== !1, f = !!(n != null && n.serifFontMode), u = !!(n != null && n.queryFontUnifyMode);
+    r.debugMode = h, ve(r.debugMode);
+    const m = (n == null ? void 0 : n.powerLevel) || "full";
+    m !== r.powerLevel && (r.powerLevel = m, Ie(m)), f !== r.serifFontMode && (r.serifFontMode = f, r.serifFontMode && r.currentThemeName === _ && ae(), !r.serifFontMode && r.originalEditorFont !== null && le()), u !== r.queryFontUnifyMode && (r.queryFontUnifyMode = u, r.queryFontUnifyMode && r.currentThemeName === _ ? re() : r.queryFontUnifyMode || ce()), c !== r.fullMode ? (r.fullMode = c, ie(), orca.plugins.setSettingsSchema(r.pluginName, e(c))) : r.fullMode = c;
   };
-  e();
-  const { subscribe: a } = window.Valtio;
-  J = a(orca.state.plugins, () => {
-    e();
-  }), orca.themes.register(z, L, "themes/startrek.css"), Z = It(), Dt(), Et(), Q = new MutationObserver(() => {
-    Lt();
-  }), Q.observe(document.head, { childList: !0, subtree: !1 }), document.querySelector('link[rel="stylesheet"][href*="startrek"]') ? (_ = L, W("检测到 startrek CSS 已加载，当前主题即为目标主题"), X && ct()) : _ = "", it(), W(`${z} loaded.`);
+  t();
+  const { subscribe: o } = window.Valtio;
+  Q = o(orca.state.plugins, () => {
+    t();
+  }), orca.themes.register(r.pluginName, _, "themes/startrek.css"), V = Ge(), Ve(), Xe(), H = new MutationObserver(() => {
+    Ke();
+  }), H.observe(document.head, { childList: !0, subtree: !1 }), document.querySelector(ge) ? (r.currentThemeName = _, C("检测到 startrek CSS 已加载，当前主题即为目标主题"), r.serifFontMode && ae(), r.queryFontUnifyMode && re()) : r.currentThemeName = "", ie(), C(`${r.pluginName} loaded.`);
 }
-async function Rt() {
-  orca.themes.unregister(L), Z && (Z.disconnect(), Z = null), Q && Q.disconnect(), J && (J(), J = null), N && (N(), N = null), W(`${z} unloaded.`);
+async function Ze() {
+  orca.themes.unregister(_), r.originalEditorFont !== null && le(), ce(), V && (V.disconnect(), V = null), K && (K.disconnect(), K = null), z && (document.removeEventListener("mouseenter", z, !0), z = null), U && (document.removeEventListener("focusin", U, !0), U = null), q && (document.removeEventListener("focusout", q, !0), q = null), H && (H.disconnect(), H = null), Q && (Q(), Q = null), R && (R(), R = null), C(`${r.pluginName} unloaded.`);
 }
 export {
-  _t as load,
-  Rt as unload
+  je as load,
+  Ze as unload
 };
