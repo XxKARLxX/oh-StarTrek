@@ -1,96 +1,70 @@
-# 🖖 oh-StarTrek
+# 🖖 oh-StarTrek *（Preview）*
 
-A Star Trek-inspired visual theme plugin for [Orca Note](https://github.com/sethyuan/orca-note), featuring an interactive starfield canvas with warp animation, mouse gravity, and task-triggered jump effects.
+> *"每一项划去的待办，都是一次驶向远方的跃迁。"* ✨
 
-## Features
+虎鲸笔记主题插件 —— 以星空为纸，以跃迁为墨 ✧*｡٩(ˊᗜˋ*)و✧*｡
 
-### 🌌 Starfield Canvas
+灵感来自《星际迷航》，在你的笔记宇宙里铺开一片会呼吸的星海 🌌
 
-- **Multi-panel support** — each editor panel gets its own independent starfield
-- **Mouse gravity** — stars near your cursor brighten and pull toward it
-- **Scroll parallax** — stars drift slower than content for a depth effect
-- **Dual-color stars** — 60% cyan, 40% orange, matching the theme accents
+---
 
-### ⚡ Warp Animation
+## 🌠 星空画布
 
-Task completion triggers a 4-phase warp animation:
+每一块编辑面板，都是一扇舷窗 (´▽`ʃ♡ƪ)
 
-- **Ramp** (0.4s) — stars accelerate outward from center
-- **Cruise** (1.6s small / 4.1s big task) — full speed with streak trails
-- **Decay** (0.5s) — brightness and size fade back to normal
+- 🪐 **独立星空** — 每个面板拥有自己的星域，互不干扰
+- 🧲 **鼠标引力** — 光标所及之处，星辰为之聚拢、闪耀
+- 🌊 **滚动视差** — 星空缓缓漂移，比你的文字更慢半拍，仿佛置身深空
+- ✦ **双色星辰** — 青与橙交映，呼应主题的灵魂色
 
-| Trigger | Duration | How |
-|---------|----------|-----|
-| Checkbox task (小任务) | ~2.5s | Checking a task checkbox |
-| Tag "Done" task (大任务) | ~5s | Setting a task tag to "Done" |
+## ⚡ 跃迁动画
 
-50% of stars produce streak trails during warp; the other 50% only drift slowly, keeping visual density comfortable.
+> *每个 task 的完成，都是一次前往目标的跃迁* 🚀
 
-### 🎨 Theme Design
+当你划掉一个任务，星空会为你跃迁 ✧
 
-- **Borderless** — uses inset box-shadows for depth instead of borders
-- **Pure neutral B&W** gray scale — zero hue shift on base colors
-- **Dark mode accents**: orange `#C7592A` + cyan `#12C2E9`
-- **Light mode accents**: deep red `#B81C1C` + purple `#8B5CF6`
-- **Scope-line gradient**: orange → cyan → orange with CSS-animatable spread
-- **Input focus glow**: spread animation with duration scaled to input width
-- **Font preview**: dropdown menus show actual font rendering
+- 小任务（勾选复选框）→ 轻盈短跃
+- 大任务（标记 Done）→ 全速跃迁
 
-### ⚙️ Plugin Settings
+星星加速、拖出光痕、然后缓缓归位——就像你也抵达了那个目标一样 ヾ(≧▽≦*)o
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| 跃迁引擎 (Warp Engine) | On | Controls starfield activation. Turn off if experiencing lag (ಥ_ಥ) |
-| 调试模式 (Debug Mode) | Off | Shows FPS counter, star coordinates, and phase info overlay |
+## ✨ 变形场联动
 
-## Installation
+搭配 oh-StarTrek-LCARS 插件的变形场功能，拖拽编辑区宽度时，指示线附近的星星受引力牵引飞驰，拖出流光尾迹；松手后星星缓缓归位，光芒渐熄。
 
-1. Clone or download this repo into your Orca Note plugins directory
-2. The plugin directory should be named `oh-StarTrek`
-3. Restart Orca Note — the theme "oh-StarTrek" will appear in theme settings
+## 🎨 视觉风格
 
-### Build from Source
+- 🖤 **无边框沉浸** — 没有生硬的边线，一切用光影勾勒深度
+- 🌑 **纯粹灰阶** — 黑白之间无色偏，沉稳如深空
+- 🌈 **作用线呼吸** — 橙青渐变缓缓扩散，像星云的脉搏
+- 💫 **输入框光晕** — 聚焦时泛起柔光
+- 🔤 **字体预览** — 下拉菜单直接展示字体真容（需已安装对应字体）
 
-```bash
-npm install
-npm run build
-```
+## ⚙️ 插件设置
 
-Build output goes to `dist/`. Make sure `vite.config.ts` `PLUGIN_DIR` points to your Orca plugins directory.
+| 设置项 | 默认 | 说明 |
+|--------|------|------|
+| 跃迁引擎 🛸 | 开启 | 星空总开关。卡顿时可关闭，但你会失去星星 (ಥ_ಥ) |
+| 调试模式 🔧 | 关闭 | 显示帧率、坐标等调试信息 |
 
-## Architecture
+## ⚠️ 关于 Preview 版本
 
-```
-src/
-  main.tsx          # Plugin lifecycle, theme detection, settings
-  starfield.ts      # Starfield engine: multi-panel canvas, warp state machine
-  orca.d.ts         # Orca API type declarations
-  libs/l10n.ts      # i18n helper
-  translations/
-    zhCN.ts         # Chinese translations
-themes/
-  startrek.css      # Theme CSS: variable overrides + dark mode
-```
+这是 **Preview 版本**，尚未对浅色模式进行优化 (´･_･`)
 
-## Related Projects
+👉 **建议使用深色模式**，星空在暗色中才最动人 🌑✨
 
-- **Orca Note** — [github.com/sethyuan/orca-note](https://github.com/sethyuan/orca-note)
-- **Awesome OrcaNote** (plugin collection) — [github.com/sethyuan/awesome-orcanote](https://github.com/sethyuan/awesome-orcanote)
+## 📦 安装
 
-## Browser Compatibility
+1. 将 `oh-StarTrek` 文件夹放入虎鲸笔记插件目录
+2. 重启虎鲸笔记，在主题设置中选择 **oh-StarTrek** 🎉
 
-oh-StarTrek uses modern CSS features that require a recent Chromium-based browser. Since Orca Note runs on Electron, compatibility is generally not an issue.
+## 🔗 相关项目
 
-| Feature | Min Chrome | Min Firefox | Min Safari |
-|---------|-----------|------------|------------|
-| `color-mix(in oklab, ...)` | 111 | 113 | 16.2 |
-| `rgb(from ...)` (relative color) | 119 | 128 | 16.4 |
-| `@property` | 85 | 128 | 15.4 |
-| `@scope` | 118 | — | — |
-| `oklch()` | 111 | 113 | 15.4 |
+- 📌 **oh-StarTrek-LCARS** — [github.com/XxKARLxX/oh-StarTrek-LCARS](https://github.com/XxKARLxX/oh-StarTrek-LCARS)
+  星际迷航风格虎鲸笔记插件套件：PADD 设置钉选 + 变形场宽度调整
+- 🐋 **虎鲸笔记** — [github.com/sethyuan/orca-note](https://github.com/sethyuan/orca-note)
+- 📚 **Awesome OrcaNote** — [github.com/sethyuan/awesome-orcanote](https://github.com/sethyuan/awesome-orcanote)
 
-**Minimum recommended**: Chrome 119+ / Electron 28+
+## 许可证
 
-## License
-
-MIT
+[MIT License](https://opensource.org/licenses/MIT)
