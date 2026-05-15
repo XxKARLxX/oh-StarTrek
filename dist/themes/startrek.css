@@ -1607,3 +1607,53 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
         color: var(--orca-color-primary-4);
     }
 }
+
+/* =============================================
+   变形场手柄指示线（Morphic Field Handle）
+   覆盖 LCARS 插件的基础样式，增强视觉效果
+   橙色线体 + 蓝色外发光，参考 scope-line 配色
+   ============================================= */
+
+/* 指示线基础：橙色，默认隐藏 */
+.orca-lcars-width-handle::before {
+    background: var(--milk-caramel) !important;
+    opacity: 0 !important;
+    width: 2px !important;
+    transition: opacity 0.3s ease, width 0.3s ease, box-shadow 0.3s ease !important;
+    box-shadow: none !important;
+}
+
+/* hover 渐显 */
+.orca-lcars-width-handle:hover::before {
+    opacity: 0.7 !important;
+    box-shadow:
+        0 0 4px color-mix(in oklab, var(--milk-slate) 30%, transparent),
+        0 0 8px color-mix(in oklab, var(--milk-slate) 15%, transparent) !important;
+}
+
+/* hover 任一手柄时，同 editor 下两条指示线一起显示 */
+.orca-block-editor-main:has(.orca-lcars-width-handle:hover) .orca-lcars-width-handle::before {
+    opacity: 0.7 !important;
+    box-shadow:
+        0 0 4px color-mix(in oklab, var(--milk-slate) 30%, transparent),
+        0 0 8px color-mix(in oklab, var(--milk-slate) 15%, transparent) !important;
+}
+
+/* 拖拽中：加粗 + 橙色渐变 + 蓝色发光，两边都生效 */
+.orca-block-editor-main:has(.orca-lcars-width-handle.dragging) .orca-lcars-width-handle::before {
+    opacity: 1 !important;
+    width: 4px !important;
+    background: linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--milk-caramel) 30%, transparent) 0%,
+        var(--milk-caramel) 20%,
+        var(--milk-caramel) 80%,
+        color-mix(in oklab, var(--milk-caramel) 30%, transparent) 100%
+    ) !important;
+    box-shadow:
+        0 0 14px color-mix(in oklab, var(--milk-slate) 100%, transparent),
+        0 0 26px color-mix(in oklab, var(--milk-slate) 70%, transparent),
+        0 0 42px color-mix(in oklab, var(--milk-slate) 40%, transparent),
+        0 0 84px color-mix(in oklab, var(--milk-slate) 18%, transparent) !important;
+    transition: opacity 0.5s ease, width 0.3s ease, box-shadow 0.4s ease !important;
+}

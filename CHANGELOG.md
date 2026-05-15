@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.0] - 2026-05-15
+
+### Added
+
+- **变形场联动（Morphic Field）** — 拖拽 LCARS 手柄时，指示线附近的星星受引力牵引飞驰，拖出流光尾迹；松手后星星缓缓归位，光芒渐熄
+  - 纯引力模型：星星朝手柄当前位置移动，距离越近偏移越小
+  - 拖尾基于帧位移，停走即消失
+  - 发光放大复用跃迁 WARP_SIZE_SCALE / WARP_ALPHA_BOOST
+  - decay 阶段：发光从峰值以 MORPHIC_DECAY_SPEED 衰减，与归位同步
+  - 引力范围按画布宽度比例（25%）自适应
+- **手柄指示线视觉增强** — 覆盖 LCARS 基础样式，融入主题风格
+  - 橙色线体（--milk-caramel），hover 渐显 0.3s，移走渐隐 0.5s
+  - 拖拽中：4px 宽，橙色渐变（中间全色两端淡出），4 层蓝色发光（14/26/42/84px）
+  - 两边指示线同时显示（:has() 选择器）
+
+### Fixed
+
+- L-01：跃迁结束/视差回收时同步 prevX，防止一帧假拖尾
+- M-01：无拖拽时跳过 DOM 查询，querySelector 替代 querySelectorAll
+
+## [2.4.0] - 2026-05-12
+
+### Added
+
+- **引擎功率三档系统** — 新增插件设置项，可切换最大功率 / 巡航功率 / 引擎怠速，控制星空密度倍率与帧率上限
+  - 最大功率：120fps / 密度×1.0
+  - 巡航功率：60fps / 密度×0.8
+  - 引擎怠速：30fps / 密度×0.6
+  - 跃迁期间自动解锁帧率至 120fps 保证动画流畅
+  - 关闭跃迁引擎时功率选项自动隐藏
+- **窗口失焦暂停** — 切换到其他应用时暂停星空渲染（`visibilitychange` + `window blur/focus` 双层覆盖），回到 Orca 自动恢复
+- **渲染容器白名单** — 星空仅在 `.orca-panels-container` 主编辑区域创建，侧边栏插件面板不再创建无意义实例
+- 调试模式显示当前功率档位
+- `PowerLevel` 类型导出，`PluginState.powerLevel` 使用联合类型
+
+### Changed
+
+- 密度倍率作用于面积密度而非最大星数上限，确保档位切换实际生效
+- `vite.config.publish.ts` 改用环境变量 `ORCA_PLUGIN_DIR`，与开发配置保持一致
+- 衰减期添加伪光晕渐出效果，视觉风格与正常状态过渡更自然
+- `hexToRgb` 解析失败时直接返回 fallback RGB，消除递归调用
+- 调试模式 `offCanvasCount` 补充实际统计逻辑
+
+### Fixed
+
+- **scopeLine mouseenter 监听器泄漏**：保存引用 `scopeLineMouseEnterHandler`，`unload()` 中正确移除
+- **PluginState.powerLevel 类型过宽**：从 `string` 改为 `PowerLevel` 联合类型，消除 `as` 断言
+- **lastPointerX/Y 死代码**：删除未使用的变量声明
+
+### Removed
+
+- 移除 i18n 基础设施（`l10n.ts` + `zhCN.ts` + `setupL10N` 调用），所有 UI 文案直接硬编码中文
+
 ## [2.3.0] - 2026-05-12
 
 ### Changed
