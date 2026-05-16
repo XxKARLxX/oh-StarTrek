@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.6.0] - 2026-05-16
+
+### Added
+
+- **三线表（Three-Line Table）** — 学术风格三线表：仅保留顶线、表头分隔线和底线
+  - 顶线和底线 3px，表头线 2px，80% 透明度
+  - 全局生效，不依赖主题激活
+  - startrek 主题自动启用，离开时恢复
+  - 用户手动切换时清除自动标记，接管控制权
+  - 排除 `.orca-table2-no-border`，不影响无线框表
+  - startrek 下颜色使用 `--orca-color-primary-7`（caramel 65%），80% 透明度
+
+### Changed
+
+- 输入框流光按场景分发：下划线流光（默认）、无效果（表格编辑/分割线标题）
+- 全局 `input` 选择器限定在 `.orca-panels-container` 内，避免影响第三方插件
+
+### Fixed
+
+- 三线表颜色源改为 `--orca-color-text-2`（fallback `--orca-color-border`），startrek 下不再透明
+- 表格内输入框流光恢复 — 三线表 `border:none` 不再影响输入框
+- `.orca-table-block-title > .orca-input-input::before` 改为 `.orca-input::before`，伪元素挂对元素
+- `.orca-hr-cap-input` 流光正确关闭
+- `@property --startrek-spread` 包裹 `@supports`，Safari 降级
+- `onThemeChanged` 不再直接改 `orca.state.plugins.settings`，避免 Valtio 级联
+- 三线表设置描述透明度与实际值统一为 80%
+- `applyThreeLineTable` 加 debug 模式选择器断言
+
+## [2.5.1] - 2026-05-15
+
+### Changed
+
+- CSS 变量 `--milk-*` 全部重命名为 `--startrek-*`，消除遗留主题命名
+- 输入框效果按场景分发：下划线流光（默认）、无效果（表格编辑/分割线标题）
+
+### Fixed
+
+- 设置项 i18n 国际化恢复（l10n + 翻译表）
+- 表格边框恢复：`orca-table2` 显示橙色边框，`orca-table2-no-border` 保持无框
+- 分割线恢复：`.orca-hr-line` 显示橙色分隔线
+- 分割线标题编辑态流光关闭：`.orca-hr-cap-input` 无下划线效果
+- L-01：跃迁结束/视差回收时同步 prevX
+- M-01：无拖拽时跳过 DOM 查询
+
 ## [2.5.0] - 2026-05-15
 
 ### Added
@@ -13,7 +57,7 @@ All notable changes to this project will be documented in this file.
   - decay 阶段：发光从峰值以 MORPHIC_DECAY_SPEED 衰减，与归位同步
   - 引力范围按画布宽度比例（25%）自适应
 - **手柄指示线视觉增强** — 覆盖 LCARS 基础样式，融入主题风格
-  - 橙色线体（--milk-caramel），hover 渐显 0.3s，移走渐隐 0.5s
+  - 橙色线体（--startrek-caramel），hover 渐显 0.3s，移走渐隐 0.5s
   - 拖拽中：4px 宽，橙色渐变（中间全色两端淡出），4 层蓝色发光（14/26/42/84px）
   - 两边指示线同时显示（:has() 选择器）
 

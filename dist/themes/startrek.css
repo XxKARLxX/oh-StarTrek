@@ -13,277 +13,277 @@
    ============================================= */
 :root {
     /* 基础色阶 — 纯中性黑白灰 */
-    --milk-light-text: #1a1a1a;
-    --milk-light-subtext1: #2e2e2e;
-    --milk-light-subtext0: #454545;
-    --milk-light-overlay2: #5c5c5c;
-    --milk-light-overlay1: #737373;
-    --milk-light-overlay0: #8c8c8c;
-    --milk-light-surface2: #b0b0b0;
-    --milk-light-surface1: #d0d0d0;
-    --milk-light-surface0: #e5e5e5;
-    --milk-light-base: #fafafa;
-    --milk-light-mantle: #f5f5f5;
-    --milk-light-crust: #eeeeee;
+    --startrek-light-text: #1a1a1a;
+    --startrek-light-subtext1: #2e2e2e;
+    --startrek-light-subtext0: #454545;
+    --startrek-light-overlay2: #5c5c5c;
+    --startrek-light-overlay1: #737373;
+    --startrek-light-overlay0: #8c8c8c;
+    --startrek-light-surface2: #b0b0b0;
+    --startrek-light-surface1: #d0d0d0;
+    --startrek-light-surface0: #e5e5e5;
+    --startrek-light-base: #fafafa;
+    --startrek-light-mantle: #f5f5f5;
+    --startrek-light-crust: #eeeeee;
 
     /* 强调色 — 深色模式：橙红（星云）· 青蓝（跃迁）· 玫红（危险） */
-    --milk-caramel: #c7592a;
-    --milk-honey: #e0a040;
-    --milk-sage: #38b888;
-    --milk-slate: #12c2e9;
-    --milk-rose: #f64f59;
+    --startrek-caramel: #c7592a;
+    --startrek-honey: #e0a040;
+    --startrek-sage: #38b888;
+    --startrek-slate: #12c2e9;
+    --startrek-rose: #f64f59;
 
     /* 内发光参数 — 浅色（中性灰） */
-    --milk-glow-edge: rgba(180, 180, 180, 0.5);
-    --milk-glow-shadow: rgba(0, 0, 0, 0.06);
+    --startrek-glow-edge: rgba(180, 180, 180, 0.5);
+    --startrek-glow-shadow: rgba(0, 0, 0, 0.06);
 
     /* Orca 变量覆盖 — 浅色模式 */
-    --orca-color-primary-5: var(--milk-caramel) !important;
+    --orca-color-primary-5: var(--startrek-caramel) !important;
     --orca-color-primary-1: color-mix(
         in oklab,
-        var(--milk-caramel) 15%,
-        var(--milk-light-base)
+        var(--startrek-caramel) 15%,
+        var(--startrek-light-base)
     );
     --orca-color-primary-2: color-mix(
         in oklab,
-        var(--milk-caramel) 40%,
-        var(--milk-light-base)
+        var(--startrek-caramel) 40%,
+        var(--startrek-light-base)
     );
     --orca-color-primary-3: color-mix(
         in oklab,
-        var(--milk-caramel) 65%,
-        var(--milk-light-base)
+        var(--startrek-caramel) 65%,
+        var(--startrek-light-base)
     );
     --orca-color-primary-4: color-mix(
         in oklab,
-        var(--milk-caramel) 85%,
-        var(--milk-light-base)
+        var(--startrek-caramel) 85%,
+        var(--startrek-light-base)
     );
     --orca-color-primary-6: color-mix(
         in oklab,
-        var(--milk-caramel) 85%,
-        var(--milk-light-text)
+        var(--startrek-caramel) 85%,
+        var(--startrek-light-text)
     );
     --orca-color-primary-7: color-mix(
         in oklab,
-        var(--milk-caramel) 65%,
-        var(--milk-light-text)
+        var(--startrek-caramel) 65%,
+        var(--startrek-light-text)
     );
     --orca-color-primary-8: color-mix(
         in oklab,
-        var(--milk-caramel) 45%,
-        var(--milk-light-text)
+        var(--startrek-caramel) 45%,
+        var(--startrek-light-text)
     );
     --orca-color-primary-9: color-mix(
         in oklab,
-        var(--milk-caramel) 30%,
-        var(--milk-light-text)
+        var(--startrek-caramel) 30%,
+        var(--startrek-light-text)
     );
 
-    --orca-color-gray-0: var(--milk-light-mantle);
-    --orca-color-gray-1: var(--milk-light-crust);
-    --orca-color-gray-2: var(--milk-light-surface0);
-    --orca-color-gray-3: var(--milk-light-surface1);
-    --orca-color-gray-4: var(--milk-light-overlay0);
-    --orca-color-gray-5: var(--milk-light-overlay0);
-    --orca-color-gray-6: var(--milk-light-overlay1);
-    --orca-color-gray-7: var(--milk-light-overlay2);
-    --orca-color-gray-8: var(--milk-light-subtext0);
-    --orca-color-gray-9: var(--milk-light-subtext1);
+    --orca-color-gray-0: var(--startrek-light-mantle);
+    --orca-color-gray-1: var(--startrek-light-crust);
+    --orca-color-gray-2: var(--startrek-light-surface0);
+    --orca-color-gray-3: var(--startrek-light-surface1);
+    --orca-color-gray-4: var(--startrek-light-overlay0);
+    --orca-color-gray-5: var(--startrek-light-overlay0);
+    --orca-color-gray-6: var(--startrek-light-overlay1);
+    --orca-color-gray-7: var(--startrek-light-overlay2);
+    --orca-color-gray-8: var(--startrek-light-subtext0);
+    --orca-color-gray-9: var(--startrek-light-subtext1);
 
-    --orca-color-success-5: var(--milk-sage);
+    --orca-color-success-5: var(--startrek-sage);
     --orca-color-success-1: color-mix(
         in oklab,
-        var(--milk-sage) 35%,
-        var(--milk-light-base)
+        var(--startrek-sage) 35%,
+        var(--startrek-light-base)
     );
     --orca-color-success-2: color-mix(
         in oklab,
-        var(--milk-sage) 50%,
-        var(--milk-light-base)
+        var(--startrek-sage) 50%,
+        var(--startrek-light-base)
     );
     --orca-color-success-3: color-mix(
         in oklab,
-        var(--milk-sage) 65%,
-        var(--milk-light-base)
+        var(--startrek-sage) 65%,
+        var(--startrek-light-base)
     );
     --orca-color-success-4: color-mix(
         in oklab,
-        var(--milk-sage) 80%,
-        var(--milk-light-base)
+        var(--startrek-sage) 80%,
+        var(--startrek-light-base)
     );
     --orca-color-success-6: color-mix(
         in oklab,
-        var(--milk-sage) 85%,
-        var(--milk-light-text)
+        var(--startrek-sage) 85%,
+        var(--startrek-light-text)
     );
     --orca-color-success-7: color-mix(
         in oklab,
-        var(--milk-sage) 70%,
-        var(--milk-light-text)
+        var(--startrek-sage) 70%,
+        var(--startrek-light-text)
     );
     --orca-color-success-8: color-mix(
         in oklab,
-        var(--milk-sage) 50%,
-        var(--milk-light-text)
+        var(--startrek-sage) 50%,
+        var(--startrek-light-text)
     );
     --orca-color-success-9: color-mix(
         in oklab,
-        var(--milk-sage) 35%,
-        var(--milk-light-text)
+        var(--startrek-sage) 35%,
+        var(--startrek-light-text)
     );
 
-    --orca-color-warning-5: var(--milk-honey);
+    --orca-color-warning-5: var(--startrek-honey);
     --orca-color-warning-1: color-mix(
         in oklab,
-        var(--milk-honey) 35%,
-        var(--milk-light-base)
+        var(--startrek-honey) 35%,
+        var(--startrek-light-base)
     );
     --orca-color-warning-2: color-mix(
         in oklab,
-        var(--milk-honey) 50%,
-        var(--milk-light-base)
+        var(--startrek-honey) 50%,
+        var(--startrek-light-base)
     );
     --orca-color-warning-3: color-mix(
         in oklab,
-        var(--milk-honey) 65%,
-        var(--milk-light-base)
+        var(--startrek-honey) 65%,
+        var(--startrek-light-base)
     );
     --orca-color-warning-4: color-mix(
         in oklab,
-        var(--milk-honey) 80%,
-        var(--milk-light-base)
+        var(--startrek-honey) 80%,
+        var(--startrek-light-base)
     );
     --orca-color-warning-6: color-mix(
         in oklab,
-        var(--milk-honey) 85%,
-        var(--milk-light-text)
+        var(--startrek-honey) 85%,
+        var(--startrek-light-text)
     );
     --orca-color-warning-7: color-mix(
         in oklab,
-        var(--milk-honey) 70%,
-        var(--milk-light-text)
+        var(--startrek-honey) 70%,
+        var(--startrek-light-text)
     );
     --orca-color-warning-8: color-mix(
         in oklab,
-        var(--milk-honey) 50%,
-        var(--milk-light-text)
+        var(--startrek-honey) 50%,
+        var(--startrek-light-text)
     );
     --orca-color-warning-9: color-mix(
         in oklab,
-        var(--milk-honey) 35%,
-        var(--milk-light-text)
+        var(--startrek-honey) 35%,
+        var(--startrek-light-text)
     );
 
-    --orca-color-dangerous-5: var(--milk-rose);
+    --orca-color-dangerous-5: var(--startrek-rose);
     --orca-color-dangerous-1: color-mix(
         in oklab,
-        var(--milk-rose) 35%,
-        var(--milk-light-base)
+        var(--startrek-rose) 35%,
+        var(--startrek-light-base)
     );
     --orca-color-dangerous-2: color-mix(
         in oklab,
-        var(--milk-rose) 50%,
-        var(--milk-light-base)
+        var(--startrek-rose) 50%,
+        var(--startrek-light-base)
     );
     --orca-color-dangerous-3: color-mix(
         in oklab,
-        var(--milk-rose) 65%,
-        var(--milk-light-base)
+        var(--startrek-rose) 65%,
+        var(--startrek-light-base)
     );
     --orca-color-dangerous-4: color-mix(
         in oklab,
-        var(--milk-rose) 80%,
-        var(--milk-light-base)
+        var(--startrek-rose) 80%,
+        var(--startrek-light-base)
     );
     --orca-color-dangerous-6: color-mix(
         in oklab,
-        var(--milk-rose) 85%,
-        var(--milk-light-text)
+        var(--startrek-rose) 85%,
+        var(--startrek-light-text)
     );
     --orca-color-dangerous-7: color-mix(
         in oklab,
-        var(--milk-rose) 70%,
-        var(--milk-light-text)
+        var(--startrek-rose) 70%,
+        var(--startrek-light-text)
     );
     --orca-color-dangerous-8: color-mix(
         in oklab,
-        var(--milk-rose) 50%,
-        var(--milk-light-text)
+        var(--startrek-rose) 50%,
+        var(--startrek-light-text)
     );
     --orca-color-dangerous-9: color-mix(
         in oklab,
-        var(--milk-rose) 35%,
-        var(--milk-light-text)
+        var(--startrek-rose) 35%,
+        var(--startrek-light-text)
     );
 
-    --orca-color-bg-1: var(--milk-light-base);
-    --orca-color-bg-2: var(--milk-light-mantle);
-    --orca-color-bg-3: var(--milk-light-crust);
+    --orca-color-bg-1: var(--startrek-light-base);
+    --orca-color-bg-2: var(--startrek-light-mantle);
+    --orca-color-bg-3: var(--startrek-light-crust);
     --orca-color-bg-blue: color-mix(
         in oklab,
-        var(--milk-slate) 30%,
-        var(--milk-light-base)
+        var(--startrek-slate) 30%,
+        var(--startrek-light-base)
     );
     --orca-color-bg-green: color-mix(
         in oklab,
-        var(--milk-sage) 32%,
-        var(--milk-light-base)
+        var(--startrek-sage) 32%,
+        var(--startrek-light-base)
     );
     --orca-color-bg-red: color-mix(
         in oklab,
-        var(--milk-rose) 22%,
-        var(--milk-light-base)
+        var(--startrek-rose) 22%,
+        var(--startrek-light-base)
     );
     --orca-color-bg-yellow: color-mix(
         in oklab,
-        var(--milk-honey) 36%,
-        var(--milk-light-base)
+        var(--startrek-honey) 36%,
+        var(--startrek-light-base)
     );
 
-    --orca-color-text-1: var(--milk-light-text);
-    --orca-color-text-2: var(--milk-light-overlay2);
-    --orca-color-text-blue: var(--milk-slate);
-    --orca-color-text-green: var(--milk-sage);
-    --orca-color-text-red: var(--milk-rose);
-    --orca-color-text-yellow: var(--milk-honey);
+    --orca-color-text-1: var(--startrek-light-text);
+    --orca-color-text-2: var(--startrek-light-overlay2);
+    --orca-color-text-blue: var(--startrek-slate);
+    --orca-color-text-green: var(--startrek-sage);
+    --orca-color-text-red: var(--startrek-rose);
+    --orca-color-text-yellow: var(--startrek-honey);
 
     /* 无边框 — 用内发光代替 */
     --orca-color-border: transparent;
-    --orca-color-separator: var(--milk-light-surface0);
+    --orca-color-separator: var(--startrek-light-surface0);
     --orca-color-menu-highlight: color-mix(
         in oklab,
-        var(--milk-caramel) 14%,
-        var(--milk-light-base)
+        var(--startrek-caramel) 14%,
+        var(--startrek-light-base)
     );
-    --orca-color-placeholder: var(--milk-light-overlay0);
+    --orca-color-placeholder: var(--startrek-light-overlay0);
     --orca-color-selection: color-mix(
         in oklab,
-        var(--milk-caramel) 14%,
-        var(--milk-light-base)
+        var(--startrek-caramel) 14%,
+        var(--startrek-light-base)
     );
     --orca-color-result-highlight: var(--orca-color-bg-yellow);
-    --orca-color-tag: var(--milk-light-surface0);
+    --orca-color-tag: var(--startrek-light-surface0);
     --orca-color-tab: var(--orca-color-primary-4);
-    --orca-color-win-scrollbar: var(--milk-light-overlay0);
-    --orca-color-mirror: var(--milk-light-mantle);
+    --orca-color-win-scrollbar: var(--startrek-light-overlay0);
+    --orca-color-mirror: var(--startrek-light-mantle);
     /* 阴影 — 柔和弥散 */
     --orca-shadow-menu:
-        rgb(from var(--milk-light-overlay0) r g b / 0.05) 0px 0px 0px 1px,
-        rgb(from var(--milk-light-overlay0) r g b / 0.08) 0px 3px 8px,
-        rgb(from var(--milk-light-overlay0) r g b / 0.12) 0px 10px 20px;
+        rgb(from var(--startrek-light-overlay0) r g b / 0.05) 0px 0px 0px 1px,
+        rgb(from var(--startrek-light-overlay0) r g b / 0.08) 0px 3px 8px,
+        rgb(from var(--startrek-light-overlay0) r g b / 0.12) 0px 10px 20px;
     --orca-shadow-toolbar-list:
-        rgb(from var(--milk-light-overlay0) r g b / 0.04) 0px 2px 0px 1px,
-        rgb(from var(--milk-light-overlay0) r g b / 0.08) 0px 4px 8px,
-        rgb(from var(--milk-light-overlay0) r g b / 0.14) 0px 18px 24px;
+        rgb(from var(--startrek-light-overlay0) r g b / 0.04) 0px 2px 0px 1px,
+        rgb(from var(--startrek-light-overlay0) r g b / 0.08) 0px 4px 8px,
+        rgb(from var(--startrek-light-overlay0) r g b / 0.14) 0px 18px 24px;
     --orca-shadow-findreplace:
-        rgb(from var(--milk-light-overlay1) r g b / 0.03) 0px 0px 0px 1px,
-        rgb(from var(--milk-light-overlay1) r g b / 0.02) 0px 3px 6px,
-        rgb(from var(--milk-light-overlay1) r g b / 0.06) 0px 8px 16px;
+        rgb(from var(--startrek-light-overlay1) r g b / 0.03) 0px 0px 0px 1px,
+        rgb(from var(--startrek-light-overlay1) r g b / 0.02) 0px 3px 6px,
+        rgb(from var(--startrek-light-overlay1) r g b / 0.06) 0px 8px 16px;
     --orca-shadow-popup:
-        rgb(from var(--milk-light-overlay1) r g b / 0.05) 0px 0px 0px 1px,
-        rgb(from var(--milk-light-overlay1) r g b / 0.03) 0px 3px 8px,
-        rgb(from var(--milk-light-overlay1) r g b / 0.08) 0px 12px 24px;
+        rgb(from var(--startrek-light-overlay1) r g b / 0.05) 0px 0px 0px 1px,
+        rgb(from var(--startrek-light-overlay1) r g b / 0.03) 0px 3px 8px,
+        rgb(from var(--startrek-light-overlay1) r g b / 0.08) 0px 12px 24px;
 
     --orca-border-general: 0px solid transparent;
 }
@@ -311,280 +311,280 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* 基础色阶 — 纯黑中性灰 */
-        --milk-dark-text: #e4e4e4;
-        --milk-dark-subtext1: #b8b8b8;
-        --milk-dark-subtext0: #949494;
-        --milk-dark-overlay2: #787878;
-        --milk-dark-overlay1: #5e5e5e;
-        --milk-dark-overlay0: #4a4a4a;
-        --milk-dark-surface2: #3a3a3a;
-        --milk-dark-surface1: #303030;
-        --milk-dark-surface0: #262626;
-        --milk-dark-base: #141414;
-        --milk-dark-mantle: #1a1a1a;
-        --milk-dark-crust: #202020;
+        --startrek-dark-text: #e4e4e4;
+        --startrek-dark-subtext1: #b8b8b8;
+        --startrek-dark-subtext0: #949494;
+        --startrek-dark-overlay2: #787878;
+        --startrek-dark-overlay1: #5e5e5e;
+        --startrek-dark-overlay0: #4a4a4a;
+        --startrek-dark-surface2: #3a3a3a;
+        --startrek-dark-surface1: #303030;
+        --startrek-dark-surface0: #262626;
+        --startrek-dark-base: #141414;
+        --startrek-dark-mantle: #1a1a1a;
+        --startrek-dark-crust: #202020;
 
         /* 色度偏移侧光 — 橙红←顶/左  青蓝→底/右 */
-        --milk-glow-edge-top: rgba(199, 89, 42, 0.08);
-        --milk-glow-edge: rgba(18, 194, 233, 0.05);
-        --milk-glow-shadow: rgba(0, 0, 0, 0.5);
+        --startrek-glow-edge-top: rgba(199, 89, 42, 0.08);
+        --startrek-glow-edge: rgba(18, 194, 233, 0.05);
+        --startrek-glow-shadow: rgba(0, 0, 0, 0.5);
 
         /* Orca 变量覆盖 — 深色模式 */
-        --orca-color-primary-5: var(--milk-caramel) !important;
+        --orca-color-primary-5: var(--startrek-caramel) !important;
         --orca-color-primary-1: color-mix(
             in oklab,
-            var(--milk-caramel) 18%,
-            var(--milk-dark-base)
+            var(--startrek-caramel) 18%,
+            var(--startrek-dark-base)
         );
         --orca-color-primary-2: color-mix(
             in oklab,
-            var(--milk-caramel) 42%,
-            var(--milk-dark-base)
+            var(--startrek-caramel) 42%,
+            var(--startrek-dark-base)
         );
         --orca-color-primary-3: color-mix(
             in oklab,
-            var(--milk-caramel) 65%,
-            var(--milk-dark-base)
+            var(--startrek-caramel) 65%,
+            var(--startrek-dark-base)
         );
         --orca-color-primary-4: color-mix(
             in oklab,
-            var(--milk-caramel) 85%,
-            var(--milk-dark-base)
+            var(--startrek-caramel) 85%,
+            var(--startrek-dark-base)
         );
         --orca-color-primary-6: color-mix(
             in oklab,
-            var(--milk-caramel) 85%,
-            var(--milk-dark-text)
+            var(--startrek-caramel) 85%,
+            var(--startrek-dark-text)
         );
         --orca-color-primary-7: color-mix(
             in oklab,
-            var(--milk-caramel) 65%,
-            var(--milk-dark-text)
+            var(--startrek-caramel) 65%,
+            var(--startrek-dark-text)
         );
         --orca-color-primary-8: color-mix(
             in oklab,
-            var(--milk-caramel) 45%,
-            var(--milk-dark-text)
+            var(--startrek-caramel) 45%,
+            var(--startrek-dark-text)
         );
         --orca-color-primary-9: color-mix(
             in oklab,
-            var(--milk-caramel) 30%,
-            var(--milk-dark-text)
+            var(--startrek-caramel) 30%,
+            var(--startrek-dark-text)
         );
 
-        --orca-color-gray-0: var(--milk-dark-mantle);
-        --orca-color-gray-1: var(--milk-dark-crust);
-        --orca-color-gray-2: var(--milk-dark-surface0);
-        --orca-color-gray-3: var(--milk-dark-surface1);
-        --orca-color-gray-4: var(--milk-dark-overlay1);
-        --orca-color-gray-5: var(--milk-dark-overlay0);
-        --orca-color-gray-6: var(--milk-dark-overlay1);
-        --orca-color-gray-7: var(--milk-dark-overlay2);
-        --orca-color-gray-8: var(--milk-dark-subtext0);
-        --orca-color-gray-9: var(--milk-dark-subtext1);
+        --orca-color-gray-0: var(--startrek-dark-mantle);
+        --orca-color-gray-1: var(--startrek-dark-crust);
+        --orca-color-gray-2: var(--startrek-dark-surface0);
+        --orca-color-gray-3: var(--startrek-dark-surface1);
+        --orca-color-gray-4: var(--startrek-dark-overlay1);
+        --orca-color-gray-5: var(--startrek-dark-overlay0);
+        --orca-color-gray-6: var(--startrek-dark-overlay1);
+        --orca-color-gray-7: var(--startrek-dark-overlay2);
+        --orca-color-gray-8: var(--startrek-dark-subtext0);
+        --orca-color-gray-9: var(--startrek-dark-subtext1);
 
-        --orca-color-success-5: var(--milk-sage);
+        --orca-color-success-5: var(--startrek-sage);
         --orca-color-success-1: color-mix(
             in oklab,
-            var(--milk-sage) 40%,
-            var(--milk-dark-base)
+            var(--startrek-sage) 40%,
+            var(--startrek-dark-base)
         );
         --orca-color-success-2: color-mix(
             in oklab,
-            var(--milk-sage) 55%,
-            var(--milk-dark-base)
+            var(--startrek-sage) 55%,
+            var(--startrek-dark-base)
         );
         --orca-color-success-3: color-mix(
             in oklab,
-            var(--milk-sage) 70%,
-            var(--milk-dark-base)
+            var(--startrek-sage) 70%,
+            var(--startrek-dark-base)
         );
         --orca-color-success-4: color-mix(
             in oklab,
-            var(--milk-sage) 85%,
-            var(--milk-dark-base)
+            var(--startrek-sage) 85%,
+            var(--startrek-dark-base)
         );
         --orca-color-success-6: color-mix(
             in oklab,
-            var(--milk-sage) 85%,
-            var(--milk-dark-text)
+            var(--startrek-sage) 85%,
+            var(--startrek-dark-text)
         );
         --orca-color-success-7: color-mix(
             in oklab,
-            var(--milk-sage) 70%,
-            var(--milk-dark-text)
+            var(--startrek-sage) 70%,
+            var(--startrek-dark-text)
         );
         --orca-color-success-8: color-mix(
             in oklab,
-            var(--milk-sage) 50%,
-            var(--milk-dark-text)
+            var(--startrek-sage) 50%,
+            var(--startrek-dark-text)
         );
         --orca-color-success-9: color-mix(
             in oklab,
-            var(--milk-sage) 35%,
-            var(--milk-dark-text)
+            var(--startrek-sage) 35%,
+            var(--startrek-dark-text)
         );
 
-        --orca-color-warning-5: var(--milk-honey);
+        --orca-color-warning-5: var(--startrek-honey);
         --orca-color-warning-1: color-mix(
             in oklab,
-            var(--milk-honey) 40%,
-            var(--milk-dark-base)
+            var(--startrek-honey) 40%,
+            var(--startrek-dark-base)
         );
         --orca-color-warning-2: color-mix(
             in oklab,
-            var(--milk-honey) 55%,
-            var(--milk-dark-base)
+            var(--startrek-honey) 55%,
+            var(--startrek-dark-base)
         );
         --orca-color-warning-3: color-mix(
             in oklab,
-            var(--milk-honey) 70%,
-            var(--milk-dark-base)
+            var(--startrek-honey) 70%,
+            var(--startrek-dark-base)
         );
         --orca-color-warning-4: color-mix(
             in oklab,
-            var(--milk-honey) 85%,
-            var(--milk-dark-base)
+            var(--startrek-honey) 85%,
+            var(--startrek-dark-base)
         );
         --orca-color-warning-6: color-mix(
             in oklab,
-            var(--milk-honey) 85%,
-            var(--milk-dark-text)
+            var(--startrek-honey) 85%,
+            var(--startrek-dark-text)
         );
         --orca-color-warning-7: color-mix(
             in oklab,
-            var(--milk-honey) 70%,
-            var(--milk-dark-text)
+            var(--startrek-honey) 70%,
+            var(--startrek-dark-text)
         );
         --orca-color-warning-8: color-mix(
             in oklab,
-            var(--milk-honey) 50%,
-            var(--milk-dark-text)
+            var(--startrek-honey) 50%,
+            var(--startrek-dark-text)
         );
         --orca-color-warning-9: color-mix(
             in oklab,
-            var(--milk-honey) 35%,
-            var(--milk-dark-text)
+            var(--startrek-honey) 35%,
+            var(--startrek-dark-text)
         );
 
-        --orca-color-dangerous-5: var(--milk-rose);
+        --orca-color-dangerous-5: var(--startrek-rose);
         --orca-color-dangerous-1: color-mix(
             in oklab,
-            var(--milk-rose) 40%,
-            var(--milk-dark-base)
+            var(--startrek-rose) 40%,
+            var(--startrek-dark-base)
         );
         --orca-color-dangerous-2: color-mix(
             in oklab,
-            var(--milk-rose) 55%,
-            var(--milk-dark-base)
+            var(--startrek-rose) 55%,
+            var(--startrek-dark-base)
         );
         --orca-color-dangerous-3: color-mix(
             in oklab,
-            var(--milk-rose) 70%,
-            var(--milk-dark-base)
+            var(--startrek-rose) 70%,
+            var(--startrek-dark-base)
         );
         --orca-color-dangerous-4: color-mix(
             in oklab,
-            var(--milk-rose) 85%,
-            var(--milk-dark-base)
+            var(--startrek-rose) 85%,
+            var(--startrek-dark-base)
         );
         --orca-color-dangerous-6: color-mix(
             in oklab,
-            var(--milk-rose) 85%,
-            var(--milk-dark-text)
+            var(--startrek-rose) 85%,
+            var(--startrek-dark-text)
         );
         --orca-color-dangerous-7: color-mix(
             in oklab,
-            var(--milk-rose) 70%,
-            var(--milk-dark-text)
+            var(--startrek-rose) 70%,
+            var(--startrek-dark-text)
         );
         --orca-color-dangerous-8: color-mix(
             in oklab,
-            var(--milk-rose) 50%,
-            var(--milk-dark-text)
+            var(--startrek-rose) 50%,
+            var(--startrek-dark-text)
         );
         --orca-color-dangerous-9: color-mix(
             in oklab,
-            var(--milk-rose) 35%,
-            var(--milk-dark-text)
+            var(--startrek-rose) 35%,
+            var(--startrek-dark-text)
         );
 
-        --orca-color-bg-1: var(--milk-dark-base);
-        --orca-color-bg-2: var(--milk-dark-mantle);
-        --orca-color-bg-3: var(--milk-dark-crust);
+        --orca-color-bg-1: var(--startrek-dark-base);
+        --orca-color-bg-2: var(--startrek-dark-mantle);
+        --orca-color-bg-3: var(--startrek-dark-crust);
         --orca-color-bg-blue: color-mix(
             in oklab,
-            var(--milk-slate) 60%,
-            var(--milk-dark-base)
+            var(--startrek-slate) 60%,
+            var(--startrek-dark-base)
         );
         --orca-color-bg-green: color-mix(
             in oklab,
-            var(--milk-sage) 62%,
-            var(--milk-dark-base)
+            var(--startrek-sage) 62%,
+            var(--startrek-dark-base)
         );
         --orca-color-bg-red: color-mix(
             in oklab,
-            var(--milk-rose) 60%,
-            var(--milk-dark-base)
+            var(--startrek-rose) 60%,
+            var(--startrek-dark-base)
         );
         --orca-color-bg-yellow: color-mix(
             in oklab,
-            var(--milk-honey) 60%,
-            var(--milk-dark-base)
+            var(--startrek-honey) 60%,
+            var(--startrek-dark-base)
         );
 
-        --orca-color-text-1: var(--milk-dark-text);
-        --orca-color-text-2: var(--milk-dark-subtext1);
-        --orca-color-text-blue: var(--milk-slate);
-        --orca-color-text-green: var(--milk-sage);
-        --orca-color-text-red: var(--milk-rose);
-        --orca-color-text-yellow: var(--milk-honey);
+        --orca-color-text-1: var(--startrek-dark-text);
+        --orca-color-text-2: var(--startrek-dark-subtext1);
+        --orca-color-text-blue: var(--startrek-slate);
+        --orca-color-text-green: var(--startrek-sage);
+        --orca-color-text-red: var(--startrek-rose);
+        --orca-color-text-yellow: var(--startrek-honey);
 
         /* 无边框 — 用内发光代替 */
         --orca-color-border: transparent;
-        --orca-color-separator: var(--milk-dark-surface0);
+        --orca-color-separator: var(--startrek-dark-surface0);
         --orca-color-menu-highlight: color-mix(
             in oklab,
-            var(--milk-caramel) 24%,
-            var(--milk-dark-base)
+            var(--startrek-caramel) 24%,
+            var(--startrek-dark-base)
         );
-        --orca-color-placeholder: var(--milk-dark-overlay0);
+        --orca-color-placeholder: var(--startrek-dark-overlay0);
         --orca-color-selection: oklch(
             from var(--orca-color-primary-5) l c h / 40%
         );
         --orca-color-result-highlight: var(--orca-color-bg-yellow);
-        --orca-color-tag: var(--milk-dark-surface0);
+        --orca-color-tag: var(--startrek-dark-surface0);
         --orca-color-tab: var(--orca-color-primary-6);
-        --orca-color-win-scrollbar: var(--milk-dark-overlay0);
-        --orca-color-mirror: var(--milk-dark-mantle);
+        --orca-color-win-scrollbar: var(--startrek-dark-overlay0);
+        --orca-color-mirror: var(--startrek-dark-mantle);
 
         /* 深色模式阴影 — 色度偏移侧光 + 外投影 */
         --orca-shadow-menu:
-            inset 0 1px 0 var(--milk-glow-edge-top),
-            inset 0 -1px 0 var(--milk-glow-edge),
-            inset 1px 0 0 var(--milk-glow-edge-top),
-            inset -1px 0 0 var(--milk-glow-edge),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
+            inset 0 -1px 0 var(--startrek-glow-edge),
+            inset 1px 0 0 var(--startrek-glow-edge-top),
+            inset -1px 0 0 var(--startrek-glow-edge),
             rgb(from black r g b / 0.25) 0px 4px 12px,
             rgb(from black r g b / 0.4) 0px 16px 32px;
         --orca-shadow-toolbar-list:
-            inset 0 1px 0 var(--milk-glow-edge-top),
-            inset 0 -1px 0 var(--milk-glow-edge),
-            inset 1px 0 0 var(--milk-glow-edge-top),
-            inset -1px 0 0 var(--milk-glow-edge),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
+            inset 0 -1px 0 var(--startrek-glow-edge),
+            inset 1px 0 0 var(--startrek-glow-edge-top),
+            inset -1px 0 0 var(--startrek-glow-edge),
             rgb(from black r g b / 0.2) 0px 6px 16px,
             rgb(from black r g b / 0.4) 0px 24px 36px;
         --orca-shadow-findreplace:
-            inset 0 1px 0 var(--milk-glow-edge-top),
-            inset 0 -1px 0 var(--milk-glow-edge),
-            inset 1px 0 0 var(--milk-glow-edge-top),
-            inset -1px 0 0 var(--milk-glow-edge),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
+            inset 0 -1px 0 var(--startrek-glow-edge),
+            inset 1px 0 0 var(--startrek-glow-edge-top),
+            inset -1px 0 0 var(--startrek-glow-edge),
             rgb(from black r g b / 0.15) 0px 4px 10px,
             rgb(from black r g b / 0.3) 0px 16px 28px;
         --orca-shadow-popup:
-            inset 0 1px 0 var(--milk-glow-edge-top),
-            inset 0 -1px 0 var(--milk-glow-edge),
-            inset 1px 0 0 var(--milk-glow-edge-top),
-            inset -1px 0 0 var(--milk-glow-edge),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
+            inset 0 -1px 0 var(--startrek-glow-edge),
+            inset 1px 0 0 var(--startrek-glow-edge-top),
+            inset -1px 0 0 var(--startrek-glow-edge),
             rgb(from black r g b / 0.2) 0px 6px 16px,
             rgb(from black r g b / 0.4) 0px 22px 40px;
 
@@ -598,8 +598,8 @@
 body.kef-round-shell {
     background: linear-gradient(
         135deg,
-        var(--milk-light-crust),
-        var(--milk-light-mantle)
+        var(--startrek-light-crust),
+        var(--startrek-light-mantle)
     );
 }
 
@@ -616,7 +616,7 @@ body.kef-round-shell {
                 rgba(18, 194, 233, 0.03),
                 transparent 50%
             ),
-            var(--milk-dark-crust);
+            var(--startrek-dark-crust);
     }
 }
 
@@ -632,35 +632,35 @@ body.kef-round-shell #headbar .orca-button {
    侧边栏 — 浅色模式
    ============================================= */
 #sidebar {
-    --orca-color-dangerous-5: var(--milk-rose);
-    --orca-color-text-1: var(--milk-light-text);
-    --orca-color-bg-1: var(--milk-light-crust);
-    --orca-color-bg-2: var(--milk-light-mantle);
+    --orca-color-dangerous-5: var(--startrek-rose);
+    --orca-color-text-1: var(--startrek-light-text);
+    --orca-color-bg-1: var(--startrek-light-crust);
+    --orca-color-bg-2: var(--startrek-light-mantle);
     --orca-color-border: transparent;
-    --orca-color-text-2: var(--milk-light-overlay2);
+    --orca-color-text-2: var(--startrek-light-overlay2);
     --orca-color-menu-highlight: color-mix(
         in oklab,
-        var(--milk-caramel) 12%,
-        var(--milk-light-crust)
+        var(--startrek-caramel) 12%,
+        var(--startrek-light-crust)
     );
     --orca-border-general: 0px solid transparent;
     --orca-shadow-menu:
         inset 0 1px 0 rgba(200, 200, 200, 0.5),
         inset 0 -1px 0 rgba(0, 0, 0, 0.03),
-        rgb(from var(--milk-light-overlay0) r g b / 0.06) 0px 2px 6px,
-        rgb(from var(--milk-light-overlay0) r g b / 0.1) 0px 8px 16px;
-    --orca-color-win-scrollbar: var(--milk-light-overlay0);
+        rgb(from var(--startrek-light-overlay0) r g b / 0.06) 0px 2px 6px,
+        rgb(from var(--startrek-light-overlay0) r g b / 0.1) 0px 8px 16px;
+    --orca-color-win-scrollbar: var(--startrek-light-overlay0);
     --orca-color-selection: color-mix(
         in oklab,
-        var(--milk-caramel) 10%,
-        var(--milk-light-crust)
+        var(--startrek-caramel) 10%,
+        var(--startrek-light-crust)
     );
-    --orca-color-placeholder: var(--milk-light-overlay1);
+    --orca-color-placeholder: var(--startrek-light-overlay1);
 }
 
 /* 侧边栏标签选项 — 内发光，无边框 */
 .orca-sidebar-tab-options {
-    background-color: var(--milk-light-mantle);
+    background-color: var(--startrek-light-mantle);
     border: none;
     box-shadow:
         inset 0 1px 0 rgba(200, 200, 200, 0.5),
@@ -669,42 +669,42 @@ body.kef-round-shell #headbar .orca-button {
 }
 
 .orca-sidebar-tab-options .orca-segmented-item {
-    color: var(--milk-light-overlay2);
+    color: var(--startrek-light-overlay2);
     border-radius: 4px;
     transition: all 0.15s ease;
 }
 
 /* 悬停时显示细微边框 */
 .orca-sidebar-tab-options .orca-segmented-item:hover:not(.orca-selected) {
-    border: 1px solid var(--milk-light-surface0);
+    border: 1px solid var(--startrek-light-surface0);
     background: color-mix(
         in oklab,
-        var(--milk-caramel) 6%,
-        var(--milk-light-base)
+        var(--startrek-caramel) 6%,
+        var(--startrek-light-base)
     );
 }
 
 .orca-sidebar-tab-options .orca-segmented-item.orca-selected {
-    color: var(--milk-light-text);
+    color: var(--startrek-light-text);
 }
 
 .orca-sidebar-tab-options.orca-segmented:not(.orca-transitioning)
     .orca-segmented-item.orca-selected,
 .orca-sidebar-tab-options.orca-segmented .orca-transition {
-    background-color: var(--milk-light-base);
+    background-color: var(--startrek-light-base);
     box-shadow:
         inset 0 1px 0 rgba(200, 200, 200, 0.7),
         0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 #sidebar .orca-sidebar-create-aliased-btn.orca-button {
-    background-color: var(--milk-light-base);
-    color: var(--milk-light-subtext1) !important;
+    background-color: var(--startrek-light-base);
+    color: var(--startrek-light-subtext1) !important;
 }
 
 #sidebar .orca-sidebar-create-aliased-btn.orca-button:hover {
-    background-color: var(--milk-light-surface1);
-    color: var(--milk-light-text) !important;
+    background-color: var(--startrek-light-surface1);
+    color: var(--startrek-light-text) !important;
 }
 
 /* 侧边栏列表图标 */
@@ -716,8 +716,8 @@ body.kef-round-shell #headbar .orca-button {
         .orca-aliased-block-icon,
         .orca-aliased-block-icon-emoji
     ) {
-    background-color: var(--milk-light-surface1);
-    color: var(--milk-light-overlay2);
+    background-color: var(--startrek-light-surface1);
+    color: var(--startrek-light-overlay2);
 }
 
 #sidebar
@@ -726,7 +726,7 @@ body.kef-round-shell #headbar .orca-button {
         .orca-tags-tag-item,
         .orca-aliased-block-item
     ):hover {
-    background-color: var(--milk-light-surface1);
+    background-color: var(--startrek-light-surface1);
 }
 
 #sidebar
@@ -742,23 +742,23 @@ body.kef-round-shell #headbar .orca-button {
         .orca-aliased-block-icon,
         .orca-aliased-block-icon-emoji
     ) {
-    background-color: var(--milk-light-surface0);
-    color: var(--milk-light-overlay1);
+    background-color: var(--startrek-light-surface0);
+    color: var(--startrek-light-overlay1);
 }
 
 /* 侧边栏菜单 — 内发光，无边框 */
 #sidebar .orca-menu {
-    background-color: var(--milk-light-mantle);
+    background-color: var(--startrek-light-mantle);
     border: none;
     box-shadow:
         inset 0 1px 0 rgba(200, 200, 200, 0.5),
         inset 0 -1px 0 rgba(0, 0, 0, 0.03),
-        rgb(from var(--milk-light-overlay0) r g b / 0.08) 0px 2px 6px,
-        rgb(from var(--milk-light-overlay0) r g b / 0.12) 0px 8px 16px;
+        rgb(from var(--startrek-light-overlay0) r g b / 0.08) 0px 2px 6px,
+        rgb(from var(--startrek-light-overlay0) r g b / 0.12) 0px 8px 16px;
 }
 
 #sidebar .orca-button.solid {
-    color: var(--milk-light-base);
+    color: var(--startrek-light-base);
 }
 
 /* =============================================
@@ -767,13 +767,13 @@ body.kef-round-shell #headbar .orca-button {
 .orca-calendar .day:not(.value):hover,
 .orca-calendar .month:not(.value):hover,
 .orca-calendar .year:not(.value):hover {
-    background-color: var(--milk-light-surface2);
-    color: var(--milk-light-text);
+    background-color: var(--startrek-light-surface2);
+    color: var(--startrek-light-text);
 }
 
 .orca-calendar .value {
-    background: var(--milk-caramel);
-    color: var(--milk-light-base);
+    background: var(--startrek-caramel);
+    color: var(--startrek-light-base);
 }
 
 .orca-calendar .weekend:not(.value, .outside) {
@@ -801,81 +801,81 @@ body.kef-round-shell #headbar .orca-button {
    ============================================= */
 @media (prefers-color-scheme: dark) {
     #sidebar {
-        --orca-color-dangerous-5: var(--milk-rose);
-        --orca-color-text-1: var(--milk-dark-text);
-        --orca-color-bg-1: var(--milk-dark-mantle);
-        --orca-color-bg-2: var(--milk-dark-base);
+        --orca-color-dangerous-5: var(--startrek-rose);
+        --orca-color-text-1: var(--startrek-dark-text);
+        --orca-color-bg-1: var(--startrek-dark-mantle);
+        --orca-color-bg-2: var(--startrek-dark-base);
         --orca-color-border: transparent;
-        --orca-color-text-2: var(--milk-dark-subtext0);
+        --orca-color-text-2: var(--startrek-dark-subtext0);
         --orca-color-menu-highlight: color-mix(
             in oklab,
-            var(--milk-caramel) 20%,
-            var(--milk-dark-base)
+            var(--startrek-caramel) 20%,
+            var(--startrek-dark-base)
         );
         --orca-border-general: 0px solid transparent;
         --orca-shadow-menu:
-            inset 0 1px 0 var(--milk-glow-edge-top),
-            inset 0 -1px 0 var(--milk-glow-edge),
-            inset 1px 0 0 var(--milk-glow-edge-top),
-            inset -1px 0 0 var(--milk-glow-edge),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
+            inset 0 -1px 0 var(--startrek-glow-edge),
+            inset 1px 0 0 var(--startrek-glow-edge-top),
+            inset -1px 0 0 var(--startrek-glow-edge),
             rgb(from black r g b / 0.25) 0px 4px 10px,
             rgb(from black r g b / 0.4) 0px 14px 24px;
-        --orca-color-win-scrollbar: var(--milk-dark-overlay0);
+        --orca-color-win-scrollbar: var(--startrek-dark-overlay0);
         --orca-color-selection: color-mix(
             in oklab,
-            var(--milk-caramel) 18%,
-            var(--milk-dark-base)
+            var(--startrek-caramel) 18%,
+            var(--startrek-dark-base)
         );
-        --orca-color-placeholder: var(--milk-dark-overlay1);
+        --orca-color-placeholder: var(--startrek-dark-overlay1);
     }
 
     /* 侧边栏标签选项 — 深色 */
     .orca-sidebar-tab-options {
-        background-color: var(--milk-dark-surface0);
+        background-color: var(--startrek-dark-surface0);
         border: none;
         box-shadow:
-            inset 0 1px 0 var(--milk-glow-edge-top),
-            inset 0 -1px 0 var(--milk-glow-edge),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
+            inset 0 -1px 0 var(--startrek-glow-edge),
             0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     .orca-sidebar-tab-options .orca-segmented-item {
-        color: var(--milk-dark-overlay2);
+        color: var(--startrek-dark-overlay2);
         border-radius: 4px;
         transition: all 0.15s ease;
     }
 
     /* 悬停时显示细微边框 */
     .orca-sidebar-tab-options .orca-segmented-item:hover:not(.orca-selected) {
-        border: 1px solid var(--milk-dark-surface2);
+        border: 1px solid var(--startrek-dark-surface2);
         background: color-mix(
             in oklab,
-            var(--milk-caramel) 8%,
-            var(--milk-dark-surface0)
+            var(--startrek-caramel) 8%,
+            var(--startrek-dark-surface0)
         );
     }
 
     .orca-sidebar-tab-options .orca-segmented-item.orca-selected {
-        color: var(--milk-dark-text);
+        color: var(--startrek-dark-text);
     }
 
     .orca-sidebar-tab-options.orca-segmented:not(.orca-transitioning)
         .orca-segmented-item.orca-selected,
     .orca-sidebar-tab-options.orca-segmented .orca-transition {
-        background-color: var(--milk-dark-base);
+        background-color: var(--startrek-dark-base);
         box-shadow:
-            inset 0 1px 0 var(--milk-glow-edge-top),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
             0 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     #sidebar .orca-sidebar-create-aliased-btn.orca-button {
-        background-color: var(--milk-dark-surface0);
-        color: var(--milk-dark-subtext1) !important;
+        background-color: var(--startrek-dark-surface0);
+        color: var(--startrek-dark-subtext1) !important;
     }
 
     #sidebar .orca-sidebar-create-aliased-btn.orca-button:hover {
-        background-color: var(--milk-dark-surface1);
-        color: var(--milk-dark-text) !important;
+        background-color: var(--startrek-dark-surface1);
+        color: var(--startrek-dark-text) !important;
     }
 
     /* 侧边栏列表图标 — 深色 */
@@ -889,10 +889,10 @@ body.kef-round-shell #headbar .orca-button {
         ) {
         background: color-mix(
             in oklab,
-            var(--milk-dark-surface1) 85%,
-            var(--milk-caramel) 5%
+            var(--startrek-dark-surface1) 85%,
+            var(--startrek-caramel) 5%
         );
-        color: var(--milk-dark-overlay2);
+        color: var(--startrek-dark-overlay2);
     }
 
     #sidebar
@@ -903,8 +903,8 @@ body.kef-round-shell #headbar .orca-button {
         ):hover {
         background: color-mix(
             in oklab,
-            var(--milk-dark-surface2) 80%,
-            var(--milk-dark-base)
+            var(--startrek-dark-surface2) 80%,
+            var(--startrek-dark-base)
         );
     }
 
@@ -921,42 +921,42 @@ body.kef-round-shell #headbar .orca-button {
             .orca-aliased-block-icon,
             .orca-aliased-block-icon-emoji
         ) {
-        background-color: var(--milk-dark-surface0);
-        color: var(--milk-dark-overlay1);
+        background-color: var(--startrek-dark-surface0);
+        color: var(--startrek-dark-overlay1);
     }
 
     /* 侧边栏菜单 — 深色色度偏移内发光 */
     #sidebar .orca-menu {
         background: color-mix(
             in oklab,
-            var(--milk-dark-mantle) 88%,
-            var(--milk-dark-base)
+            var(--startrek-dark-mantle) 88%,
+            var(--startrek-dark-base)
         );
         border: none;
         box-shadow:
-            inset 0 1px 0 var(--milk-glow-edge-top),
-            inset 0 -1px 0 var(--milk-glow-edge),
-            inset 1px 0 0 var(--milk-glow-edge-top),
-            inset -1px 0 0 var(--milk-glow-edge),
+            inset 0 1px 0 var(--startrek-glow-edge-top),
+            inset 0 -1px 0 var(--startrek-glow-edge),
+            inset 1px 0 0 var(--startrek-glow-edge-top),
+            inset -1px 0 0 var(--startrek-glow-edge),
             rgb(from black r g b / 0.3) 0px 5px 12px,
             rgb(from black r g b / 0.45) 0px 16px 28px;
     }
 
     #sidebar .orca-button.solid {
-        color: var(--milk-dark-base);
+        color: var(--startrek-dark-base);
     }
 
     /* 日历 — 深色模式 */
     .orca-calendar .day:not(.value):hover,
     .orca-calendar .month:not(.value):hover,
     .orca-calendar .year:not(.value):hover {
-        background-color: var(--milk-dark-surface2);
-        color: var(--milk-dark-text);
+        background-color: var(--startrek-dark-surface2);
+        color: var(--startrek-dark-text);
     }
 
     .orca-calendar .value {
-        background: var(--milk-caramel);
-        color: var(--milk-dark-base);
+        background: var(--startrek-caramel);
+        color: var(--startrek-dark-base);
     }
 }
 
@@ -965,18 +965,18 @@ body.kef-round-shell #headbar .orca-button {
    ============================================= */
 @scope (.orca-settings > .sections) {
     :scope {
-        background-color: var(--milk-light-surface0);
+        background-color: var(--startrek-light-surface0);
     }
 
     .title {
-        background-color: var(--milk-light-surface0);
+        background-color: var(--startrek-light-surface0);
     }
 
     .item.selected,
     .item:hover,
     .plugin-item.selected,
     .plugin-item:hover {
-        background-color: var(--milk-light-surface1);
+        background-color: var(--startrek-light-surface1);
     }
 }
 
@@ -988,7 +988,7 @@ body.kef-round-shell #headbar .orca-button {
 
 .orca-settings-shortcuts-header,
 .orca-command-modal-command-header {
-    background-color: var(--milk-light-surface0);
+    background-color: var(--startrek-light-surface0);
 }
 
 /* =============================================
@@ -997,25 +997,25 @@ body.kef-round-shell #headbar .orca-button {
 @media (prefers-color-scheme: dark) {
     @scope (.orca-settings > .sections) {
         :scope {
-            background-color: var(--milk-dark-surface0);
+            background-color: var(--startrek-dark-surface0);
         }
 
         .title {
-            background-color: var(--milk-dark-surface0);
+            background-color: var(--startrek-dark-surface0);
         }
 
         .item.selected,
         .item:hover,
         .plugin-item.selected,
         .plugin-item:hover {
-            background-color: var(--milk-dark-surface1);
+            background-color: var(--startrek-dark-surface1);
         }
     }
 
     @scope (.orca-settings > .views) {
         .header-row,
         .header-row.row:hover {
-            background-color: var(--milk-dark-surface0);
+            background-color: var(--startrek-dark-surface0);
         }
     }
 
@@ -1027,7 +1027,7 @@ body.kef-round-shell #headbar .orca-button {
 
     .orca-settings-shortcuts-header,
     .orca-command-modal-command-header {
-        background-color: var(--milk-dark-surface0);
+        background-color: var(--startrek-dark-surface0);
     }
 }
 
@@ -1035,21 +1035,21 @@ body.kef-round-shell #headbar .orca-button {
    按钮 — 浅色模式
    ============================================= */
 .orca-button.dangerous {
-    background: var(--milk-rose);
-    color: var(--milk-light-base);
+    background: var(--startrek-rose);
+    color: var(--startrek-light-base);
 }
 
 .orca-button.dangerous:active {
-    background: color-mix(in oklab, var(--milk-rose) 78%, black);
+    background: color-mix(in oklab, var(--startrek-rose) 78%, black);
 }
 
 .orca-button.soft {
-    background: var(--milk-light-surface1);
-    color: var(--milk-light-text);
+    background: var(--startrek-light-surface1);
+    color: var(--startrek-light-text);
 }
 
 .orca-button.soft:active {
-    background: var(--milk-light-surface2);
+    background: var(--startrek-light-surface2);
 }
 
 /* =============================================
@@ -1057,25 +1057,25 @@ body.kef-round-shell #headbar .orca-button {
    ============================================= */
 @media (prefers-color-scheme: dark) {
     .orca-button.dangerous {
-        background: var(--milk-rose);
-        color: var(--milk-dark-base);
+        background: var(--startrek-rose);
+        color: var(--startrek-dark-base);
     }
 
     .orca-button.dangerous:active {
-        background: color-mix(in oklab, var(--milk-rose) 78%, white);
+        background: color-mix(in oklab, var(--startrek-rose) 78%, white);
     }
 
     .orca-button.soft {
         background: color-mix(
             in oklab,
-            var(--milk-dark-surface1) 88%,
-            var(--milk-dark-surface0)
+            var(--startrek-dark-surface1) 88%,
+            var(--startrek-dark-surface0)
         );
-        color: var(--milk-dark-text);
+        color: var(--startrek-dark-text);
     }
 
     .orca-button.soft:active {
-        background: var(--milk-dark-surface2);
+        background: var(--startrek-dark-surface2);
     }
 
     /* 分段选择器 & 下拉选择 — 深色模式 */
@@ -1105,12 +1105,12 @@ body.kef-round-shell #headbar .orca-button {
    查询列表块
    ============================================= */
 .orca-query-list-block {
-    --orca-color-mirror: var(--milk-light-crust);
+    --orca-color-mirror: var(--startrek-light-crust);
 }
 
 @media (prefers-color-scheme: dark) {
     .orca-query-list-block {
-        --orca-color-mirror: var(--milk-dark-crust);
+        --orca-color-mirror: var(--startrek-dark-crust);
     }
 }
 
@@ -1118,14 +1118,14 @@ body.kef-round-shell #headbar .orca-button {
    文字选中
    ============================================= */
 ::selection {
-    background: color-mix(in oklab, var(--milk-caramel) 30%, transparent);
-    color: var(--milk-light-text);
+    background: color-mix(in oklab, var(--startrek-caramel) 30%, transparent);
+    color: var(--startrek-light-text);
 }
 
 @media (prefers-color-scheme: dark) {
     ::selection {
-        background: color-mix(in oklab, var(--milk-caramel) 24%, transparent);
-        color: var(--milk-dark-text);
+        background: color-mix(in oklab, var(--startrek-caramel) 24%, transparent);
+        color: var(--startrek-dark-text);
     }
 }
 
@@ -1143,7 +1143,7 @@ body.kef-round-shell #headbar .orca-button {
     .orca-sidebar-resizer:hover {
         background: var(--orca-color-primary-5);
         box-shadow: 0 0 10px
-            color-mix(in oklab, var(--milk-caramel) 30%, transparent);
+            color-mix(in oklab, var(--startrek-caramel) 30%, transparent);
     }
 }
 
@@ -1182,8 +1182,8 @@ body.kef-round-shell #headbar .orca-button {
 
 /* 浅色模式 — 浅灰底、深灰字、无边框 */
 .orca-inline.c {
-    background-color: var(--milk-light-surface1) !important;
-    color: var(--milk-light-text) !important;
+    background-color: var(--startrek-light-surface1) !important;
+    color: var(--startrek-light-text) !important;
     border: none !important;
     border-bottom: none !important;
 }
@@ -1191,8 +1191,8 @@ body.kef-round-shell #headbar .orca-button {
 /* 深色模式 — 深灰底、白字 */
 @media (prefers-color-scheme: dark) {
     .orca-inline.c {
-        background-color: var(--milk-dark-surface1) !important;
-        color: var(--milk-dark-text) !important;
+        background-color: var(--startrek-dark-surface1) !important;
+        color: var(--startrek-dark-text) !important;
         border: none !important;
         border-bottom: none !important;
     }
@@ -1235,15 +1235,15 @@ body.kef-round-shell #headbar .orca-button {
         [data-icon],
         :hover
     ):before {
-    color: var(--milk-caramel);
+    color: var(--startrek-caramel);
 }
 .orca-repr-ul-content:before {
-    color: var(--milk-caramel);
+    color: var(--startrek-caramel);
 }
 
 /* 有序列表序号 */
 .orca-repr-ol-content:before {
-    color: var(--milk-caramel);
+    color: var(--startrek-caramel);
 }
 
 /* =============================================
@@ -1258,8 +1258,8 @@ body.kef-round-shell #headbar .orca-button {
 :root {
     --orca-color-scope-line: color-mix(
         in oklab,
-        var(--milk-caramel) 18%,
-        color-mix(in oklab, var(--milk-slate) 12%, transparent)
+        var(--startrek-caramel) 18%,
+        color-mix(in oklab, var(--startrek-slate) 12%, transparent)
     );
 }
 
@@ -1268,8 +1268,8 @@ body.kef-round-shell #headbar .orca-button {
     :root {
         --orca-color-scope-line: color-mix(
             in oklab,
-            var(--milk-caramel) 30%,
-            color-mix(in oklab, var(--milk-slate) 20%, transparent)
+            var(--startrek-caramel) 30%,
+            color-mix(in oklab, var(--startrek-slate) 20%, transparent)
         );
     }
 }
@@ -1279,17 +1279,20 @@ body.kef-round-shell #headbar .orca-button {
     :root {
         --orca-color-scope-line: color-mix(
             in oklab,
-            var(--milk-caramel) 15%,
-            color-mix(in oklab, var(--milk-slate) 10%, transparent)
+            var(--startrek-caramel) 15%,
+            color-mix(in oklab, var(--startrek-slate) 10%, transparent)
         );
     }
 }
 
-/* @property 让浏览器能平滑插值 --milk-spread (0→1) */
-@property --milk-spread {
+/* @property 让浏览器能平滑插值 --startrek-spread (0→1)
+ * Safari 不支持 @property，降级为纯 opacity 动画 */
+@supports (display: grid) {
+@property --startrek-spread {
     syntax: "<number>";
     initial-value: 0;
     inherits: false;
+}
 }
 
 /* 流光层 — 用 ::after 叠加尾焰渐变 */
@@ -1298,36 +1301,36 @@ body.kef-round-shell #headbar .orca-button {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    --milk-spread: 0;
+    --startrek-spread: 0;
     /* 纵向尾焰：橙(喷口) → 青(尾流)
        橙40% / 青60%（上橙20 + 中青60 + 下橙20）
        青色开头稍亮(80%)，中段渐淡(30%)，尾部回升(60%) */
     background: linear-gradient(
         180deg,
-        var(--milk-caramel) 0%,
-        var(--milk-caramel) 20%,
-        color-mix(in oklab, var(--milk-slate) 80%, transparent) 24%,
-        color-mix(in oklab, var(--milk-slate) 50%, transparent) 40%,
-        color-mix(in oklab, var(--milk-slate) 30%, transparent) 50%,
-        color-mix(in oklab, var(--milk-slate) 50%, transparent) 60%,
-        color-mix(in oklab, var(--milk-slate) 60%, transparent) 76%,
-        var(--milk-caramel) 80%,
-        var(--milk-caramel) 100%
+        var(--startrek-caramel) 0%,
+        var(--startrek-caramel) 20%,
+        color-mix(in oklab, var(--startrek-slate) 80%, transparent) 24%,
+        color-mix(in oklab, var(--startrek-slate) 50%, transparent) 40%,
+        color-mix(in oklab, var(--startrek-slate) 30%, transparent) 50%,
+        color-mix(in oklab, var(--startrek-slate) 50%, transparent) 60%,
+        color-mix(in oklab, var(--startrek-slate) 60%, transparent) 76%,
+        var(--startrek-caramel) 80%,
+        var(--startrek-caramel) 100%
     );
     clip-path: polygon(
         0 0,
         100% 0,
-        100% calc(24px + var(--milk-spread) * (50% - 24px)),
-        0 calc(24px + var(--milk-spread) * (50% - 24px)),
-        0 calc(100% - 24px - var(--milk-spread) * (50% - 24px)),
-        100% calc(100% - 24px - var(--milk-spread) * (50% - 24px)),
+        100% calc(24px + var(--startrek-spread) * (50% - 24px)),
+        0 calc(24px + var(--startrek-spread) * (50% - 24px)),
+        0 calc(100% - 24px - var(--startrek-spread) * (50% - 24px)),
+        100% calc(100% - 24px - var(--startrek-spread) * (50% - 24px)),
         100% 100%,
         0 100%
     );
     opacity: 0;
     transition:
         opacity 0.5s ease-out,
-        --milk-spread 0.5s ease-out;
+        --startrek-spread 0.5s ease-out;
     pointer-events: none;
 }
 
@@ -1336,15 +1339,15 @@ body.kef-round-shell #headbar .orca-button {
     .orca-repr-scope-line::after {
         background: linear-gradient(
             180deg,
-            var(--milk-caramel) 0%,
-            var(--milk-caramel) 20%,
-            color-mix(in oklab, var(--milk-slate) 80%, transparent) 24%,
-            color-mix(in oklab, var(--milk-slate) 60%, transparent) 40%,
-            color-mix(in oklab, var(--milk-slate) 40%, transparent) 50%,
-            color-mix(in oklab, var(--milk-slate) 60%, transparent) 60%,
-            color-mix(in oklab, var(--milk-slate) 70%, transparent) 76%,
-            var(--milk-caramel) 80%,
-            var(--milk-caramel) 100%
+            var(--startrek-caramel) 0%,
+            var(--startrek-caramel) 20%,
+            color-mix(in oklab, var(--startrek-slate) 80%, transparent) 24%,
+            color-mix(in oklab, var(--startrek-slate) 60%, transparent) 40%,
+            color-mix(in oklab, var(--startrek-slate) 40%, transparent) 50%,
+            color-mix(in oklab, var(--startrek-slate) 60%, transparent) 60%,
+            color-mix(in oklab, var(--startrek-slate) 70%, transparent) 76%,
+            var(--startrek-caramel) 80%,
+            var(--startrek-caramel) 100%
         );
     }
 }
@@ -1356,10 +1359,10 @@ body.kef-round-shell #headbar .orca-button {
 
 .orca-repr-scope-line:hover::after {
     opacity: 1;
-    --milk-spread: 1;
+    --startrek-spread: 1;
     transition:
         opacity 0s,
-        --milk-spread var(--milk-scope-spread-dur, 0.4s) ease-out;
+        --startrek-spread var(--startrek-scope-spread-dur, 0.4s) ease-out;
 }
 
 /* 激活态（光标在子 block 内时，父节点为 active-parent） */
@@ -1369,10 +1372,10 @@ body.kef-round-shell #headbar .orca-button {
     > .orca-repr-main-none-editable
     > .orca-repr-scope-line::after {
     opacity: 1;
-    --milk-spread: 1;
+    --startrek-spread: 1;
     transition:
         opacity 0.3s ease-in,
-        --milk-spread 0.4s ease-out;
+        --startrek-spread 0.4s ease-out;
 }
 
 .orca-block.orca-active-parent
@@ -1387,15 +1390,15 @@ body.kef-round-shell #headbar .orca-button {
    流光从两端展开时，发光也同步从两端展开 */
 .orca-repr-scope-line {
     filter: none;
-    transition: filter var(--milk-scope-spread-dur, 0.4s) ease-out;
+    transition: filter var(--startrek-scope-spread-dur, 0.4s) ease-out;
 }
 
 .orca-repr-scope-line:hover {
     filter: drop-shadow(
-            0 -3px 5px color-mix(in oklab, var(--milk-caramel) 22%, transparent)
+            0 -3px 5px color-mix(in oklab, var(--startrek-caramel) 22%, transparent)
         )
         drop-shadow(
-            0 3px 5px color-mix(in oklab, var(--milk-slate) 16%, transparent)
+            0 3px 5px color-mix(in oklab, var(--startrek-slate) 16%, transparent)
         );
 }
 
@@ -1406,10 +1409,10 @@ body.kef-round-shell #headbar .orca-button {
     > .orca-repr-main-none-editable
     > .orca-repr-scope-line {
     filter: drop-shadow(
-            0 -3px 5px color-mix(in oklab, var(--milk-caramel) 22%, transparent)
+            0 -3px 5px color-mix(in oklab, var(--startrek-caramel) 22%, transparent)
         )
         drop-shadow(
-            0 3px 5px color-mix(in oklab, var(--milk-slate) 16%, transparent)
+            0 3px 5px color-mix(in oklab, var(--startrek-slate) 16%, transparent)
         );
 }
 
@@ -1418,11 +1421,11 @@ body.kef-round-shell #headbar .orca-button {
     .orca-repr-scope-line:hover {
         filter: drop-shadow(
                 0 -3px 5px
-                    color-mix(in oklab, var(--milk-caramel) 30%, transparent)
+                    color-mix(in oklab, var(--startrek-caramel) 30%, transparent)
             )
             drop-shadow(
                 0 3px 5px
-                    color-mix(in oklab, var(--milk-slate) 22%, transparent)
+                    color-mix(in oklab, var(--startrek-slate) 22%, transparent)
             );
     }
     .orca-block.orca-active-parent
@@ -1432,11 +1435,11 @@ body.kef-round-shell #headbar .orca-button {
         > .orca-repr-scope-line {
         filter: drop-shadow(
                 0 -3px 5px
-                    color-mix(in oklab, var(--milk-caramel) 30%, transparent)
+                    color-mix(in oklab, var(--startrek-caramel) 30%, transparent)
             )
             drop-shadow(
                 0 3px 5px
-                    color-mix(in oklab, var(--milk-slate) 22%, transparent)
+                    color-mix(in oklab, var(--startrek-slate) 22%, transparent)
             );
     }
 }
@@ -1446,8 +1449,8 @@ body.kef-round-shell #headbar .orca-button {
    白底上衬线笔画显得更细，需要补偿
    ============================================= */
 :root {
-    --milk-fontweight-ui: 500;
-    --milk-fontweight-editor: 500;
+    --startrek-fontweight-ui: 500;
+    --startrek-fontweight-editor: 500;
 }
 
 body,
@@ -1456,7 +1459,7 @@ body,
 .orca-block-editor .ProseMirror,
 #sidebar,
 #headbar {
-    font-weight: var(--milk-fontweight-editor);
+    font-weight: var(--startrek-fontweight-editor);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1477,9 +1480,9 @@ body,
    focus：从两端向中间展开填满，中间自然渐变过渡
    ============================================= */
 
-/* 输入框基础 — 灰色细底线（仅外层容器和独立 input） */
+/* 输入框基础 — 灰色细底线（仅外层容器和 Orca 作用域内 input） */
 .orca-input,
-input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
+.orca-panels-container input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     border: none !important;
     border-bottom: 1px solid var(--orca-color-gray-4) !important;
     border-radius: 0 !important;
@@ -1495,17 +1498,27 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     outline: none !important;
 }
 
+.orca-input {
+    position: relative;
+}
+
+/* ────────────────────────────────────────────
+   输入框效果：按场景分发
+   ────────────────────────────────────────────
+   下划线流光 = 编辑器内标题/属性、对话框
+   全包围流光 = 搜索框、过滤框、设置面板
+   无效果     = 表格内编辑
+   ──────────────────────────────────────────── */
+
+/* ======== 默认效果：下划线流光 ======== */
+
 /* 过滤器输入框 — 未激活时隐藏底线，聚焦时才显示流光 */
 .orca-input.orca-tags-list-filter,
 .orca-input.orca-aliased-filter {
     border-bottom-color: transparent !important;
 }
 
-.orca-input {
-    position: relative;
-}
-
-/* 左半边流光 — 橙红，向右端渐变淡出 */
+/* 左半边流光 — 橙色，向右端渐变淡出 */
 .orca-input::before {
     content: "";
     position: absolute;
@@ -1515,8 +1528,8 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     width: 2px;
     background: linear-gradient(
         to right,
-        var(--milk-caramel),
-        color-mix(in oklab, var(--milk-caramel) 30%, var(--milk-slate))
+        var(--startrek-caramel),
+        color-mix(in oklab, var(--startrek-caramel) 30%, var(--startrek-slate))
     );
     opacity: 0;
     transition:
@@ -1525,7 +1538,7 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     pointer-events: none;
 }
 
-/* 右半边流光 — 青蓝右端，向左渐变淡出（与左半镜像） */
+/* 右半边流光 — 青色，向左端渐变淡出 */
 .orca-input::after {
     content: "";
     position: absolute;
@@ -1535,8 +1548,8 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     width: 2px;
     background: linear-gradient(
         to left,
-        var(--milk-slate),
-        color-mix(in oklab, var(--milk-caramel) 30%, var(--milk-slate))
+        var(--startrek-slate),
+        color-mix(in oklab, var(--startrek-caramel) 30%, var(--startrek-slate))
     );
     opacity: 0;
     transition:
@@ -1545,7 +1558,7 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     pointer-events: none;
 }
 
-/* hover — 两端向中间展开（与 focus 同款，略淡） */
+/* hover — 两端向中间展开 */
 .orca-input:hover::before,
 .orca-input:hover::after {
     opacity: 0.6;
@@ -1556,7 +1569,7 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     border-bottom-color: var(--orca-color-gray-6) !important;
 }
 
-/* focus — 两端向中间完全展开，填满底线 */
+/* focus — 两端向中间完全展开 */
 .orca-input:focus-within::before,
 .orca-input:focus-within::after {
     opacity: 1;
@@ -1566,37 +1579,59 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
         opacity 0s;
 }
 
-/* focus 时隐藏灰色底线（仅外层） */
 .orca-input:focus-within {
     border-bottom-color: transparent !important;
 }
 
-/* 浅色模式 — focus 发光需要更饱和更亮 */
+/* ======== 全包围流光（暂未启用） ======== */
+
+/* ======== 无效果：表格内编辑、分割线标题 ======== */
+
+.orca-query-table-cell .orca-input::before,
+.orca-query-table-cell .orca-input::after,
+.orca-table-block-title > .orca-input::before,
+.orca-table-block-title > .orca-input::after,
+.orca-hr-cap-input::before,
+.orca-hr-cap-input::after {
+    display: none !important;
+}
+
+.orca-query-table-cell .orca-input:hover,
+.orca-query-table-cell .orca-input:focus-within,
+.orca-table-block-title > .orca-input:hover,
+.orca-table-block-title > .orca-input:focus-within,
+.orca-hr-cap-input:hover,
+.orca-hr-cap-input:focus-within {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* ======== 下划线流光：发光效果（按配色方案） ======== */
+
 @media (prefers-color-scheme: light) {
     .orca-input:focus-within::before {
         box-shadow: 0 1px 6px
-            color-mix(in oklab, var(--milk-caramel) 40%, transparent);
+            color-mix(in oklab, var(--startrek-caramel) 40%, transparent);
     }
     .orca-input:focus-within::after {
         box-shadow: 0 1px 6px
-            color-mix(in oklab, var(--milk-slate) 40%, transparent);
+            color-mix(in oklab, var(--startrek-slate) 40%, transparent);
     }
-    /* 浅色模式 hover 流光也需要更饱和 */
     .orca-input:hover::before,
     .orca-input:hover::after {
         opacity: 0.8;
     }
+    /* 全包围流光（暂未启用） */
 }
 
-/* 深色模式 — focus 时额外发光 */
 @media (prefers-color-scheme: dark) {
     .orca-input:focus-within::before {
         box-shadow: 0 1px 4px
-            color-mix(in oklab, var(--milk-caramel) 25%, transparent);
+            color-mix(in oklab, var(--startrek-caramel) 25%, transparent);
     }
     .orca-input:focus-within::after {
         box-shadow: 0 1px 4px
-            color-mix(in oklab, var(--milk-slate) 25%, transparent);
+            color-mix(in oklab, var(--startrek-slate) 25%, transparent);
     }
 }
 
@@ -1616,7 +1651,7 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
 
 /* 指示线基础：橙色，默认隐藏 */
 .orca-lcars-width-handle::before {
-    background: var(--milk-caramel) !important;
+    background: var(--startrek-caramel) !important;
     opacity: 0 !important;
     width: 2px !important;
     transition: opacity 0.3s ease, width 0.3s ease, box-shadow 0.3s ease !important;
@@ -1627,16 +1662,16 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
 .orca-lcars-width-handle:hover::before {
     opacity: 0.7 !important;
     box-shadow:
-        0 0 4px color-mix(in oklab, var(--milk-slate) 30%, transparent),
-        0 0 8px color-mix(in oklab, var(--milk-slate) 15%, transparent) !important;
+        0 0 4px color-mix(in oklab, var(--startrek-slate) 30%, transparent),
+        0 0 8px color-mix(in oklab, var(--startrek-slate) 15%, transparent) !important;
 }
 
 /* hover 任一手柄时，同 editor 下两条指示线一起显示 */
 .orca-block-editor-main:has(.orca-lcars-width-handle:hover) .orca-lcars-width-handle::before {
     opacity: 0.7 !important;
     box-shadow:
-        0 0 4px color-mix(in oklab, var(--milk-slate) 30%, transparent),
-        0 0 8px color-mix(in oklab, var(--milk-slate) 15%, transparent) !important;
+        0 0 4px color-mix(in oklab, var(--startrek-slate) 30%, transparent),
+        0 0 8px color-mix(in oklab, var(--startrek-slate) 15%, transparent) !important;
 }
 
 /* 拖拽中：加粗 + 橙色渐变 + 蓝色发光，两边都生效 */
@@ -1645,15 +1680,42 @@ input:not([type="checkbox"], [type="radio"]):not(.orca-input-actualinput) {
     width: 4px !important;
     background: linear-gradient(
         to bottom,
-        color-mix(in oklab, var(--milk-caramel) 30%, transparent) 0%,
-        var(--milk-caramel) 20%,
-        var(--milk-caramel) 80%,
-        color-mix(in oklab, var(--milk-caramel) 30%, transparent) 100%
+        color-mix(in oklab, var(--startrek-caramel) 30%, transparent) 0%,
+        var(--startrek-caramel) 20%,
+        var(--startrek-caramel) 80%,
+        color-mix(in oklab, var(--startrek-caramel) 30%, transparent) 100%
     ) !important;
     box-shadow:
-        0 0 14px color-mix(in oklab, var(--milk-slate) 100%, transparent),
-        0 0 26px color-mix(in oklab, var(--milk-slate) 70%, transparent),
-        0 0 42px color-mix(in oklab, var(--milk-slate) 40%, transparent),
-        0 0 84px color-mix(in oklab, var(--milk-slate) 18%, transparent) !important;
+        0 0 14px color-mix(in oklab, var(--startrek-slate) 100%, transparent),
+        0 0 26px color-mix(in oklab, var(--startrek-slate) 70%, transparent),
+        0 0 42px color-mix(in oklab, var(--startrek-slate) 40%, transparent),
+        0 0 84px color-mix(in oklab, var(--startrek-slate) 18%, transparent) !important;
     transition: opacity 0.5s ease, width 0.3s ease, box-shadow 0.4s ease !important;
+}
+
+/* ── 表格边框恢复 ── startrek 主题全局隐藏边框，但表格需要显示
+ *  注：三线表开启时，此规则被 THREE_LINE_TABLE_CSS 的 border:none 覆盖 */
+.orca-table2-cell {
+    --orca-border-general: 1px solid color-mix(in oklab, var(--startrek-caramel) 30%, transparent) !important;
+}
+.orca-table2-no-border .orca-table2-cell {
+    --orca-border-general: none !important;
+}
+
+/* ── 三线表颜色覆盖（startrek 主题） ── */
+/* 深色/日间统一用 primary-7（caramel 65% + 文字色）80% 透明度
+ * startrek.css <link> 在 JS <style> 之后，源序优先，无需提特异性 */
+.startrek-three-line-table .orca-table2:not(.orca-table2-no-border) .orca-table2-cell[data-r="1"] {
+    border-top-color: color-mix(in oklab, var(--orca-color-primary-7) 80%, transparent) !important;
+    border-bottom-color: color-mix(in oklab, var(--orca-color-primary-7) 80%, transparent) !important;
+}
+.startrek-three-line-table .orca-table2:not(.orca-table2-no-border) .orca-table2-cell.orca-table2-last-row {
+    border-bottom-color: color-mix(in oklab, var(--orca-color-primary-7) 80%, transparent) !important;
+}
+
+
+
+/* ── 分割线恢复 ── */
+.orca-hr-line {
+    background-color: color-mix(in oklab, var(--startrek-caramel) 25%, transparent) !important;
 }
